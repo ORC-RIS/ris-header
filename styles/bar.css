@@ -166,7 +166,7 @@ input.button-add {
 }
 
 /* The right-hand portion of the header */
-#ucfhb-right { float: right; position: relative;  width: 300px; !important  height: 50px; overflow: visible !important; }
+#ucfhb-right { float: right; position: relative;  width: 300px !important; height: 50px; overflow: visible !important; }
 
 /* MyUCF: button */
 #ucfhb-signon { 
@@ -221,7 +221,7 @@ input.button-add {
  }
 #ucfhb-services > div {
 	display: block;
-	/* visibility: visible; */
+	 visibility: hidden; 
 	-webkit-transition: all 0s linear 0s; /* Force immediate hide of children */
 	-ms-transition: all 0s linear 0s;
 	transition: all 0s linear 0s;
@@ -303,7 +303,7 @@ input.button-add {
 	line-height: 0 !important;
 	font-size: 0;
 }
-#ucfhb-search-field1 { 
+#ucfhb-search-field { 
 	width: 160px !important; 
 	height: 25px !important; 
 	border-radius: 30px; 

@@ -17,10 +17,11 @@ $(document).mouseup(function (e)
 		for (var c = a.length, d = 0; d < c; d++) - 1 < a[d].className.indexOf("ucfhb-gold") ? a[d].className = "ucfhb-gold " + b : a[d].className = b
 	};	
     var app_menu = jQuery("#Drawer");
+	var imgsrc = jQuery("#ucf-research-apps");
 	d = document.getElementById("ucfhb-signon-logo1");
 	b = document.getElementById("ucfhb-right")
 	
-    if (!app_menu.is(e.target) // if the target of the click isn't the container...
+    if (!app_menu.is(e.target) && !imgsrc.is(e.target) // if the target of the click isn't the container...
         && app_menu.has(e.target).length === 0) // ... nor a descendant of the container
     {
     	jQuery("#ucf-research-apps").attr("src", ""+address+"Images/appdrawer.png");
