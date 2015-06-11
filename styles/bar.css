@@ -75,6 +75,7 @@ input.button-add {
 #ucfhb {
 	position: fixed !important;
 	text-align:left !important;
+	min-height:50px;
 }
 
 .outer_container{
@@ -117,7 +118,7 @@ input.button-add {
  **
 
 /* Main wrapper */
-#ucfhb { height: 50px; width: 100%; margin: auto; background: #000; position: relative; z-index: 10000; }
+#ucfhb { min-height: 50px; width: 100%; margin: auto; background: #000; position: relative; z-index: 10000; position:absolute}
 /* Foundation CSS Framework overrides */
 #ucfhb,
 #ucfhb:before,
