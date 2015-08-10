@@ -3,6 +3,7 @@
 ::-moz-placeholder { font-size: 6pt; color: #555; text-align:left;}
 :-ms-input-placeholder { font-size: 6pt; color: #555; text-align:left;}
 input:-moz-placeholder { font-size: 6pt; color: #555;text-align:left; }
+input {line-height: normal;}
 #drawerSearch{float: left;
 width: 180px;
 height: 15px;
@@ -42,7 +43,7 @@ margin-left: 5px;
 /*	border-color: #dbae04;
 	border-width: 0px 1px 2px 1px; */
 	text-decoration: none !important;}
-.viewMore{padding:10px;	font-size:0.9em;background-color:#eee;text-decoration: none !important;margin-top:10px;}
+.viewMore{padding:10px;	font-size:0.9em;background-color:#eee;text-decoration: none !important;margin-top:10px; text-align: center;}
 .viewMore a{text-decoration: none !important;color: #000  !important;}
 .viewMore:hover{padding:10px;	font-size:0.9em;font-weight:bold;background-color:#eee;text-decoration: none !important;color: #000  !important; }		
 
@@ -76,11 +77,13 @@ input.button-add {
 	position: fixed !important;
 	text-align:left !important;
 	min-height:50px;
+	top:0px;
 }
 
 .outer_container{
 	position: relative !important;
 	top: 50px !important;
+
 }
 
 
@@ -89,7 +92,7 @@ input.button-add {
  * Assign spritesheet.png backgrounds in bulk.
  * Background-positions should be assigned per ID
  **/
-#ucfhb-mobile-toggle,
+/*#ucfhb-mobile-toggle,
 #ucfhb-logo a,
 #ucfhb-signon-logo .ucfhb-hidden,
 #ucfhb-services > div > .ucfhb-service,
@@ -110,15 +113,14 @@ input.button-add {
  			background-image: url('../img/spritesheet-r.png');
  			background-size: 350px 160px;
  		}
-}
-
+}*/
 
 /**
  * FULL-WIDTH STYLING
  **
 
 /* Main wrapper */
-#ucfhb { min-height: 50px; width: 100%; margin: auto; background: #000; position: relative; z-index: 10000; position:absolute}
+#ucfhb { min-height: 50px; width: 100%; margin: auto; background: #000; z-index: 10000;}
 /* Foundation CSS Framework overrides */
 #ucfhb,
 #ucfhb:before,
@@ -131,7 +133,7 @@ input.button-add {
 	-webkit-box-sizing: content-box !important;
 }
 /* Common miscellaneous overrides */
-#ucfhb a { border: 0; z-index: 9 !important;}
+#ucfhb a { border: 0; z-index: 9 !important; text-align: center !important;}
 
 /* Inner wrap (fixed 940px width) */
 /* display: block is added to override display:none inline styles, which prevent 
@@ -139,8 +141,10 @@ input.button-add {
 #ucfhb-inner { display: block !important; width: 940px; margin: auto; height: 50px; position: relative; z-index: 1000; }
 
 /* The left-hand portion of the header */
-#ucfhb-left { float: left; padding-top: 11px; width: 320px; }
-#ucfhb-mobile-toggle { 
+#ucfhb-left { float: left; padding-top: 11px; width: 320px; line-height: normal !important; }
+#ucfhb-mobile-toggle {
+	float: right;
+	font-size: small;
 	display: none;
 	width: 30px;
 	height: 30px;
@@ -149,9 +153,12 @@ input.button-add {
 	right: 2px;
 	background-position: -166px -136px;
 }
+#ucfhb-mobile-toggle{
+	margin-right:11px;
+}
 #ucfhb-mobile-toggle.ucfhb-mobileslide { background-position: -198px -136px; }
 #ucfhb-mobile-toggle:focus { outline: 0; }
-#ucfhb-logo { float: left; padding-top: 2px; }
+#ucfhb-logo { float: left; padding-top: 2px; margin-left:20px; }
 #ucfhb-logo a {
 	width: 284px;
 	height: 24px;
@@ -218,7 +225,7 @@ input.button-add {
 #ucfhb-signon-logo.ucfhb-shiftleft #ucfhb-icon-close { display: block; }
 
 /* MyUCF: login form */
-#ucfhb-services { position: absolute; top: 0; right: 5px; width: 340px; height:0px !important; z-index: 1; overflow: visible !important;
+#ucfhb-services { position: relative; margin-top:-8px; top: 0; right: 5px; width: 340px; height:0px !important; z-index: 1; overflow: visible !important;
  }
 #ucfhb-services > div {
 	display: block;
@@ -305,7 +312,7 @@ input.button-add {
 	font-size: 0;
 }
 #ucfhb-search-field { 
-	width: 160px !important; 
+	width: 160px; 
 	height: 25px !important; 
 	border-radius: 30px; 
 	border: 0;
@@ -334,7 +341,7 @@ input.button-add {
 /* Can't comma-separate these... */
 #ucfhb-search-field::-webkit-input-placeholder {
    font-family: 'Helvetica-Neue', sans-serif;
-   font-size: 13px;
+   font-size: 16px;
    font-style: normal;
    font-weight: normal;
    color: #666;
@@ -543,25 +550,29 @@ input.button-add {
  **/
 
 /* Tablet size (768-979px) */ 
+
+
 @media (max-width: 979px) {
+
 	#ucfhb-inner { width: 768px; }
 	#ucfhb-logo { padding-left: 10px; }
 	#ucfhb-right { width: 448px; }
-	#ucfhb-services { width: 335px; right: 10px; }
-	#ucfhb-search { right: 9px; }
-	#ucfhb-search-field { width: 155px !important; }
+	#ucfhb-services { width: 335px; right: 10px; margin-left:-101px;}
+	#ucfhb-search { right: 4px; padding:0px; border:none;}
+	#ucfhb-search-field { width: 50% !important; margin-left:45px;}
 	#ucfhb-search-autocomplete { right: 10px; }
 	#ucfhb-search-autocomplete-close { right: 10px; }
-
+	#ucf-research-apps {margin-left:54px;}
 	#servicesContainer {display:none;}
 	#ucfhb-signon {display: block;}
+	.arrow-up{margin-left: 22px;padding-top: 2px;}
 }
 
 /* Small tablet size (>=767px) */ 
 @media (max-width: 767px) {
 	#ucfhb {
 		height: 100px;
-		margin-top: -50px;
+		margin-top: -51px;
 		transition: margin 0.4s ease-in-out; /* expand down */
 		-webkit-transition: margin 0.4s ease-in-out;
 		-ms-transition: margin 0.4s ease-in-out;
@@ -574,6 +585,7 @@ input.button-add {
 	}
 	#ucfhb.ucfhb-mobileslide {
 		margin-top: 0;
+		position: fixed;
 	}
 	#ucfhb-inner { 
 		width: 100%;
@@ -585,29 +597,31 @@ input.button-add {
 
 	/* Shift the right-hand portion to the top of ucfhb-inner */
 	#ucfhb-right {
-		position: absolute;
-		width: 100%;
-		visibility: visible;
-		height: 49px; /* Accomodate for border-bottom */
-		border-bottom: 1px solid #454545;
-		top: 0;
+		border-bottom: none !important;
 		float: none;
+		height: 49px; /* Accomodate for border-bottom */
+		padding-left: 50px;
+		position: absolute;
+		top: 0;
+		visibility: visible;
+		width: 100%;
 	}
 	#ucfhb-signon,
 	#ucfhb-search {
 		width: 50%;
 		position: static;
-		float: left;
+		float: right;
 		padding: 0;
 		margin: 3px 0 0 0;
 		right: 0;
 		left: 0;
 		border: 0;
 	}
-	#ucfhb-signon { height: auto; overflow: auto; }
+	#ucfhb-signon { float: left;height: 45px; margin: 0px; overflow: hidden;}
 	#ucfhb-signon-logo { display: none; }
 	#ucfhb-services {
-		position: static;
+		margin-top: 100px;
+		position: absolute;
 		padding: 0;
 		width: auto;
 		height: auto;
@@ -627,9 +641,9 @@ input.button-add {
 		overflow: auto;
 	}
 	#ucfhb-services > div > a { line-height: 30px; margin: 0; }
-	#ucfhb-search { height: 38px; margin-top: 4px; }
+	#ucfhb-search { height: 38px; margin-top: 7px; }
 	#ucfhb-search form { padding: 0 10px; margin: auto; height: 38px; }
-	#ucfhb-search-field { font-size: 16px; padding-top: 4px; padding-bottom: 8px; }
+	#ucfhb-search-field { font-size: 16px; padding-top: 2px; padding-bottom: 3px; }
 	/* Can't comma-separate these... */
 	#ucfhb-search-field::-webkit-input-placeholder {
 	   font-size: 16px;
@@ -661,7 +675,8 @@ input.button-add {
 	.ucfhb-shiftleft + #ucfhb-services > div { 
 		margin: auto;
 		width: 100% !important;
-		height: 40px !important; 
+		height: auto !important; 
+		overflow: visible;
 	}
 
 	#ucfhb-search.ucfhb-shiftleft { overflow: visible; width: 50%; }
@@ -682,27 +697,30 @@ input.button-add {
 	#ucfhb.ucfhb-mobileslide #ucfhb-search-autocomplete.search-is-active + #ucfhb-search-autocomplete-close {
 		display: block; /* Don't let results stack on top of the bar when resized down */
 	}
+	#list{padding:2px;}
+	.arrow-up {float:left; margin-left:40px;}
 }
 
 /* Phone size (>=480px) */
 @media (max-width: 480px) {
 	#ucfhb {
-		height: 150px;
-		margin-top: -100px;
+		height: 100px !important;
+		margin-top: -51px;
 	}
 	#ucfhb-inner { height: 100px; }
-	#ucfhb-left { top: 100px; } /* height accounts for padding-top */
 	#ucfhb-logo a img { width: 234px; height: 13px; max-width: 234px; }
-	#ucfhb-right { height: 99px; } /* Accounts for border-bottom */
-	#ucfhb-signon,
-	#ucfhb-search {
-		width: 100% !important;
-	}
-	#ucfhb-search { margin-top: 10px; }
-
+	#ucfhb-right { height: 50px;padding-left:45px;} /* Accounts for border-bottom */
+	#ucfhb-signon {margin-left: -40px;}
+	#ucfhb-signon,#ucfhb-search {width: 100% !important;}
+	#ucfhb-search { margin-top: 7px; }
+	#ucfhb-search form {float: right; margin: 0px; width: 160px;}
 	#ucfhb-search-autocomplete { width: 100%; right: 0; top: 93px; }
 	#ucfhb-search-autocomplete-close { bottom: -23px; }
+	#ucfhb-search-field {width:106px !important;}
+	.arrow-up {float:left;margin-left:0px;}
+
 }
+
 
 
 /**
@@ -753,6 +771,7 @@ input.button-add {
  * GOLD BAR: RESPONSIVE OVERRIDES
  **/
 @media (max-width: 767px) {
+	#ucfhb-left { border-top:solid 1px #ffcc00; }
 	.ucfhb-gold #ucfhb-logo { padding-left: 17px; }
  	.ucfhb-gold #ucfhb-right { border-bottom: 1px solid #E5BA1D; }
  	.ucfhb-gold #ucfhb-search { border-left: 0; }
@@ -760,3 +779,26 @@ input.button-add {
 } 
 /* Adding the hidden classes from bootstrap */
 @media (max-width:767px){.hidden-xs{display:none!important}}@media (min-width:768px) and (max-width:991px){.hidden-sm{display:none!important}}@media (min-width:992px) and (max-width:1199px){.hidden-md{display:none!important}}@media (min-width:1200px){.hidden-lg{display:none!important}}.visible-print{display:none!important}@media print{.visible-print{display:block!important}table.visible-print{display:table}tr.visible-print{display:table-row!important}td.visible-print,th.visible-print{display:table-cell!important}}.visible-print-block{display:none!important}@media print{.visible-print-block{display:block!important}}.visible-print-inline{display:none!important}@media print{.visible-print-inline{display:inline!important}}.visible-print-inline-block{display:none!important}@media print{.visible-print-inline-block{display:inline-block!important}}@media print{.hidden-print{display:none!important}}
+
+@media (max-width:767px){
+	#ucfhb-search {right: 4px; padding:0px;}
+	#ucfhb-search form {}
+	#ucfhb-search-field {margin-left:0px;width:155px!important;}
+	#ucf-research-apps {margin-left:0px;}
+}
+
+@media (max-width: 480px) {
+	#ucfhb-search-field {width:50% !important;}
+}
+
+@media (min-width: 980px) {
+	#ucfhb-services {margin-left:-155px;}
+}
+
+@media(min-width: 768px){
+	#divSpace {margin-top:50px;}
+}
+
+@media print{
+	.preload, .preload * {display: none !important;}
+}
