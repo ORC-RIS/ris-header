@@ -361,12 +361,12 @@ function initialize_jQuery_black_bar(){
 				};
 				// code for disabling search button when string is null - Rob
 				black_bar_jQuery('#ucfhb-search-submit').attr('disabled','disabled');
-				black_bar_jQuery('input[type="text"]').keyup(function(){
-					if(black_bar_jQuery('input[type="text"]').val() == ""){
-						black_bar_jQuery('input[type="button"]').attr('disabled','disabled');
+				black_bar_jQuery('#ucfhb-search-field').keyup(function(){
+					if(black_bar_jQuery('#ucfhb-search-field').val() == ""){
+						black_bar_jQuery('#ucfhb-search-submit').attr('disabled','disabled');
 					}
 					else{
-						black_bar_jQuery('input[type="button"]').removeAttr('disabled');
+						black_bar_jQuery('#ucfhb-search-submit').removeAttr('disabled');
 					}
 				})
 			
@@ -777,7 +777,7 @@ function initialize_jQuery_black_bar(){
 								'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
 							'</div>\n</div>\n</div>\n</div>\n</div>' +
 							//Search Bar
-							'<div id="ucfhb-search">','<form target="_blank" formtarget="_blank" action="http://google.cc.ucf.edu/search" data-action-url="http://google.cc.ucf.edu/search?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q="  method="get" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off">', '<label for="ucfhb-search-field">Search ORC</label>\n<input type="hidden" name="client" value="UCF_Main" />\n<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" autocomplete="off" autocapitalize="off" aria-autocomplete="off" aria-owns="ucfhb-search-autocomplete" aria-activedescendant="ucfhb-autocomplete-selected" aria-haspopup="true" role="search" />\n<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n<button id="ucfhb-search-submit" class="button-add fa fa-search" style="text-indent:0px !important; font-size:small;color:#000;" type="button" value="Go" onclick="ExecuteWebSiteSearchQuery();" />\n</form>\n<span id="ucfhb-search-autocomplete-srhelp" role="status" aria-live="polite"></span>\n<a id="ucfhb-search-minimal" href="#">Search</a>\n</div>\n<ul id="ucfhb-search-autocomplete" tabindex="1" aria-hidden="true" role="listbox" ></ul>\n<a style="display:none;" id="ucfhb-search-autocomplete-close" href="#" alt="Close autocomplete results" title="Close autocomplete results">&times;</a>\n</div>\n</div>\n' +
+							'<div id="ucfhb-search">','<form target="_blank" formtarget="_blank" action="http://google.cc.ucf.edu/search" data-action-url="http://google.cc.ucf.edu/search?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q="  method="get" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off">', '<label for="ucfhb-search-field">Search ORC</label>\n<input type="hidden" name="client" value="UCF_Main" />\n<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" autocomplete="off" autocapitalize="off" aria-autocomplete="off" aria-owns="ucfhb-search-autocomplete" aria-activedescendant="ucfhb-autocomplete-selected" aria-haspopup="true" role="search" />\n<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n<button id="ucfhb-search-submit" class="button-add fa fa-search" style="text-indent:0px !important; font-size:small;color:#000;" type="button" value="Go" onclick="" />\n</form>\n<span id="ucfhb-search-autocomplete-srhelp" role="status" aria-live="polite"></span>\n<a id="ucfhb-search-minimal" href="#">Search</a>\n</div>\n<ul id="ucfhb-search-autocomplete" tabindex="1" aria-hidden="true" role="listbox" ></ul>\n<a style="display:none;" id="ucfhb-search-autocomplete-close" href="#" alt="Close autocomplete results" title="Close autocomplete results">&times;</a>\n</div>\n</div>\n' +
 					'</div>\n' +
 				'</div>\n'
 				].join("\n");
