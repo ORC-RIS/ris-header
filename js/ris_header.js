@@ -35,41 +35,14 @@ function initialize_jQuery_black_bar(){
 	var searchInputId = "ucfhb-search-field"; 
 	var searchForm	= "ucfhb-search-form";
 	var address = "//header.research.ucf.edu/";
-	var risappsaddress = "http://apps.research.ucf.edu/";
+	var risappsaddress = "https://apps.webdev1.research.ucf.edu/";
 	var addressWO = "//header.research.ucf.edu/";
+	var searchloc = "http://google.cc.ucf.edu";
 	var searchControl;
-
-	ExecuteWebSiteSearchQuery = function(){
-
-		// var webSiteSearchQuery = document.getElementById( searchInputId ).value;
-
-		// var w = document.getElementById(searchResultsTarget);
-		// w.innerHTML = "";
-		// w.style.width = "100%";
-
-		// var siteSearchORC = new GwebSearch();
-		// siteSearchORC.setUserDefinedLabel("Office of Research & Commercialization");
-		// siteSearchORC.setUserDefinedClassSuffix("siteSearch");
-		// siteSearchORC.setSiteRestriction("www.research.ucf.edu");
-		// var searcherOptionsORC = new GsearcherOptions();
-		// searcherOptionsORC.setExpandMode(GSearchControl.EXPAND_MODE_OPEN);
-
-		// searchControl = new GSearchControl();
-		// searchControl.setResultSetSize(GSearch.LARGE_RESULTSET);
-		// searchControl.setLinkTarget(GSearch.LINK_TARGET_BLANK);
-		// searchControl.addSearcher(siteSearchORC, searcherOptionsORC);
-		// searchControl.addSearcher(siteSearchTT, searcherOptionsTT);
-		// searchControl.addSearcher(siteSearchINC, searcherOptionsINC);
-		// var drawOptions = new GdrawOptions();
-
-		// drawOptions.setDrawMode(GSearchControl.DRAW_MODE_TABBED);
-		// // tell the searcher to draw itself and tell it where to attach
-		// searchControl.draw(document.getElementById( searchResultsTarget ),drawOptions);
- 
-  // //     	// execute the search
-  //     	searchControl.execute(webSiteSearchQuery);
-		// document.getElementById('ucfhb-search-form').submit();
-		// document.getElementById('ucfhb-search-form').target="_blank";	
+	
+	ExecuteWebSiteSearchQuery = function(){		
+		document.getElementById('ucfhb-search-form').submit();
+		document.getElementById('ucfhb-search-form').target="_blank";	
 	}
 	
 	appdrawermover = function(){
@@ -92,7 +65,8 @@ function initialize_jQuery_black_bar(){
 		f.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
 		var l = document.getElementsByTagName("script")[0];
 		l.parentNode.insertBefore(f, l)
-	})();
+	})();	
+	
 	var ucfhbTrackAction = function (f, l, r) {
 		null !== l && null !== r ? (_gaq.push(["ucfhb._trackEvent", "Header", l, r]), window.setTimeout(function () {
 			document.location = f
@@ -109,47 +83,431 @@ function initialize_jQuery_black_bar(){
 				ucfhbTrackAction(r, s, u);
 				return !1
 			})
-		};
-
-		(function () {
+		},
+		ucfhbJsonp = null;
+		function ucfhbSetJsonp(f) {
+			ucfhbJsonp = f ? f : null
+		}(function () {
 			function f() {
 				function c(b) {
 					var a = 0,
 						e;
 					for (e in b) b.hasOwnProperty(e) && a++;
-					return a;
+					return a
 				}
 				function a(b) {
 					return b.replace(/(<([^>]+)>)/ig, "")
 				}
+				function w(b, a) {
+					var e = b.target || b.srcElement,
+						g = !1,
+						c = !1;
+					e.getBoundingClientRect().left >= a.getBoundingClientRect().left && e.getBoundingClientRect().right <= a.getBoundingClientRect().right && (g = !0);
+					e.getBoundingClientRect().top >= a.getBoundingClientRect().top && e.getBoundingClientRect().bottom <= a.getBoundingClientRect().bottom && (c = !0);
+					return g && c ? !1 : !0
+				}
+				function f(b, a) {
+					var e = document.getElementById("ucfhb-json");
+					e && e.parentNode.removeChild(e);
+					C(b, function () {
+						var b = JSON.parse(ucfhbJsonp);
+						a(b)
+					}, 600)
+				}
 				var b = this;
 				this.searchService = v;
-				
+				this.autocompleteCloseBtn = document.getElementById("ucfhb-search-autocomplete-close");
+				this.autocompleteHelp = document.getElementById("ucfhb-search-autocomplete-srhelp");
+				this.autocompleteList = document.getElementById("ucfhb-search-autocomplete");
+				this.autocompleteSelectedId = "ucfhb-autocomplete-selected";
 				this.searchForm = document.getElementById("ucfhb-search-form");
 				this.searchField = document.getElementById("ucfhb-search-field");
-
-				var d;				
+				this.searchSubmit = document.getElementById("ucfhb-search-submit");
+				this.searchAction = this.searchForm.getAttribute("data-action-url");
+				this.searchActiveClass = "search-is-active";
+				this.searchKeytermLinkClass = "search-autocomplete-keyterm";
+				this.searchResultsLinkClass = "search-autocomplete-result";
+				this.keyterms = {
+					terms: {
+						t_1: "hous;housing;dorm;apartment;on-campus living;residence;nike;apollo;libra;tower;neptune;lake claire".split(";"),
+						t_2: "cal;calendar;acad;academic calendar;fall;spring;summer;sched;schedule;deadline;deadlines;drop".split(";"),
+						t_3: ["lib", "library", "libraries"],
+						t_4: ["email", "knights", "mail"],
+						t_5: ["email", "outlook"],
+						t_6: "giv;giving;gift;donate;donation;giving to UCF;give to UCF".split(";"),
+						t_7: ["schola", "scholarship"],
+						t_8: ["aid", "finan", "financial"],
+						t_9: ["web", "online", "webcourses"],
+						t_10: ["book", "bookstore"],
+						t_11: ["tuit", "tuition", "cost"],
+						t_12: ["orien", "orientation"],
+						t_13: ["job", "employment", "employ", "career"],
+						t_14: ["career", "intern"],
+						t_15: ["park", "parking"],
+						t_16: ["map", "campus"],
+						t_17: ["regist", "registrar"],
+						t_18: ["transc", "transcript"],
+						t_19: ["nurs", "nursing", "college"],
+						t_20: ["educ", "education", "college"],
+						t_21: ["art", "arts", "humanities", "college", "cah"],
+						t_22: ["scien", "science", "college", "cos"],
+						t_23: ["psy", "psych", "psychology"],
+						t_24: ["heal", "health", "service", "well"],
+						t_25: ["heal", "health", "public", "affairs", "college"],
+						t_26: ["hosp", "hospitality", "rosen", "college"],
+						t_27: ["busi", "business", "college", "coba"],
+						t_28: ["med", "medic", "medicine", "college"],
+						t_29: ["serv", "service", "stud", "student"],
+						t_30: ["dining", "food", "serv", "service"],
+						t_31: ["phon", "phone", "phonebook", "dir", "directory"],
+						t_32: ["under", "undergrad", "undergraduate", "stud", "studies"],
+						t_33: ["major", "minor", "degree", "prog", "program"],
+						t_34: ["tour", "campus", "open", "open house"],
+						t_35: ["stud", "student", "student union", "union", "food"],
+						t_36: ["foot", "football", "athlet", "athletic"],
+						t_37: ["under", "undergrad", "undergraduate", "admis", "admissions"],
+						t_38: ["sga", "stud", "student", "gov", "govern"],
+						t_39: "cat catal catalog cour course under undergrad".split(" "),
+						t_40: "cat catal catalog cour course grad graduate".split(" "),
+						t_41: "grad graduate master college admis admissions".split(" "),
+						t_42: ["nid", "login", "pass", "password"],
+						t_43: ["my ucf", "myucf"],
+						t_44: ["hr", "hum", "human", "human resource", "human resources"],
+						t_45: ["foundation", "UCF foundation"]
+					},
+					matches: {
+						m_1: {
+							name: "Housing and Residence Life",
+							url: "http://housing.ucf.edu"
+						},
+						m_2: {
+							name: "Academic Calendar",
+							url: "http://calendar.ucf.edu"
+						},
+						m_3: {
+							name: "UCF Libraries",
+							url: "http://library.ucf.edu/"
+						},
+						m_4: {
+							name: "Knights Email",
+							url: "http://knightsemail.ucf.edu"
+						},
+						m_5: {
+							name: "Faculty and Staff Webmail",
+							url: "http://webmail.ucf.edu"
+						},
+						m_6: {
+							name: "Giving to UCF",
+							url: "https://giving.ucffoundation.org/ucffoundation"
+						},
+						m_7: {
+							name: "Scholarship Information",
+							url: "http://finaid.ucf.edu/scholarships/"
+						},
+						m_8: {
+							name: "Financial Aid",
+							url: "http://finaid.ucf.edu/types/"
+						},
+						m_9: {
+							name: "Webcourses",
+							url: "http://webcourses.ucf.edu"
+						},
+						m_10: {
+							name: "UCF Bookstore",
+							url: "bookstore.ucf.edu"
+						},
+						m_11: {
+							name: "Tuition and Fees",
+							url: "http://tuitionfees.smca.ucf.edu/"
+						},
+						m_12: {
+							name: "Orientation",
+							url: "http://orientation.ucf.edu/"
+						},
+						m_13: {
+							name: "Jobs with UCF",
+							url: "https://www.jobswithucf.com/"
+						},
+						m_14: {
+							name: "Career Services",
+							url: "http://career.sdes.ucf.edu/"
+						},
+						m_15: {
+							name: "Parking Services",
+							url: "http://parking.ucf.edu/"
+						},
+						m_16: {
+							name: "Campus Map",
+							url: "http://map.ucf.edu"
+						},
+						m_17: {
+							name: "Registrar",
+							url: "http://registrar.ucf.edu/"
+						},
+						m_18: {
+							name: "Official Transcript Requests",
+							url: "http://registrar.ucf.edu/transcript-request"
+						},
+						m_19: {
+							name: "College of Nursing",
+							url: "http://nursing.ucf.edu"
+						},
+						m_20: {
+							name: "College of Education and Human Performance",
+							url: "http://education.ucf.edu/"
+						},
+						m_21: {
+							name: "College of Arts and Humanities",
+							url: "http://www.cah.ucf.edu/"
+						},
+						m_22: {
+							name: "College of Science",
+							url: "http://www.cos.ucf.edu/"
+						},
+						m_23: {
+							name: "Department of Psychology",
+							url: "http://psychology.cos.ucf.edu/"
+						},
+						m_24: {
+							name: "Health Services",
+							url: "http://hs.ucf.edu/"
+						},
+						m_25: {
+							name: "College of Health and Public Affairs",
+							url: "http://cohpa.ucf.edu/"
+						},
+						m_26: {
+							name: "Rosen College of Hospitality Management",
+							url: "http://hospitality.ucf.edu/"
+						},
+						m_27: {
+							name: "College of Business Administration",
+							url: "http://www.bus.ucf.edu/"
+						},
+						m_28: {
+							name: "College of Medicine",
+							url: "http://med.ucf.edu/"
+						},
+						m_29: {
+							name: "Student Services",
+							url: "http://www.sdes.ucf.edu/list"
+						},
+						m_30: {
+							name: "Dining Services",
+							url: "http://www.ucfdining.com/"
+						},
+						m_31: {
+							name: "UCF Phonebook",
+							url: "http://www.ucf.edu/phonebook/"
+						},
+						m_32: {
+							name: "Undergraduate Studies",
+							url: "http://undergraduatestudies.ucf.edu/"
+						},
+						m_33: {
+							name: "Undergraduate Catalog",
+							url: "http://catalog.ucf.edu/programs"
+						},
+						m_34: {
+							name: "Campus Visit",
+							url: "http://admissions.ucf.edu/visit/"
+						},
+						m_35: {
+							name: "Student Union",
+							url: "http://studentunion.ucf.edu/"
+						},
+						m_36: {
+							name: "UCF Knights | Athletics",
+							url: "http://www.ucfknights.com/"
+						},
+						m_37: {
+							name: "Undergraduate Admissions",
+							url: "http://admissions.ucf.edu/"
+						},
+						m_38: {
+							name: "Student Government",
+							url: "http://sga.ucf.edu"
+						},
+						m_39: {
+							name: "Undergraduate Catalog",
+							url: "http://catalog.ucf.edu/programs"
+						},
+						m_40: {
+							name: "Graduate Catalog",
+							url: "http://www.graduatecatalog.ucf.edu/programs/"
+						},
+						m_41: {
+							name: "Graduate Admissions",
+							url: "http://www.admissions.graduate.ucf.edu/"
+						},
+						m_42: {
+							name: "NID",
+							url: "http://mynid.ucf.edu"
+						},
+						m_43: {
+		
+							name: "MyUCF",
+							url: "https://my.ucf.edu"
+						},
+						m_44: {
+							name: "Human Resources",
+							url: "http://hr.ucf.edu/"
+						},
+						m_45: {
+							name: "UCF Foundation",
+							url: "http://ucffoundation.org/"
+						}
+					}
+				};
+				// code for disabling search button when string is null - Rob
+				black_bar_jQuery('#ucfhb-search-submit').attr('disabled','disabled');
+				black_bar_jQuery('#ucfhb-search-field').keyup(function(){
+					if(black_bar_jQuery('#ucfhb-search-field').val() == ""){
+						black_bar_jQuery('#ucfhb-search-submit').attr('disabled','disabled');
+					}
+					else{
+						black_bar_jQuery('#ucfhb-search-submit').removeAttr('disabled');
+					}
+				})
+			
+				var d;
+				this.clearAutocompleteResults = function () {
+					for (; b.autocompleteList.hasChildNodes();) b.autocompleteList.removeChild(b.autocompleteList.lastChild)
+				};
+				this.isSearchActive = function () {
+					return b.autocompleteList.className == b.searchActiveClass
+				};
+				this.toggleAutocompleteList = function (a) {
+					b.clearAutocompleteResults();
+					!0 === a ? (b.autocompleteList.className = b.searchActiveClass, b.autocompleteList.setAttribute("aria-hidden", "false")) : (b.autocompleteList.className = "", b.autocompleteList.setAttribute("aria-hidden", "true"))
+				};
+				this.updateAutocompleteHelp = function (a, c) {
+					var e = "";
+					0 === a && null === c ? e = "Search field is empty." : (e = a, e = 1 === a ? e + " suggestion found" : e + " suggestions found", null !== c && (e += ' for "' + c + '"'), 0 < a && (e += ". Use up and down arrow keys to select a suggestion."));
+					b.autocompleteHelp.innerHTML = e
+				};
+				this.outputResults = function (B, m) {
+					var e = a(B),
+						g = e.toLowerCase();
+					urlq = encodeURIComponent(e);
+					var x = function () {
+						var a = document.createElement("li"),
+							g = b.searchAction + urlq;
+						a.innerHTML = '<a class="' + b.searchResultsLinkClass + '" href="' + g + '" tabindex="0">View More Results</a>';
+						a.className = "ucfhb-search-autocomplete-more";
+						a.setAttribute("data-name-val", e);
+						var h = a.getElementsByTagName("a")[0];
+						ucfhbAssignTrackingListener(h, "click", new String(g), l, "View more results: " + e);
+						b.autocompleteList.appendChild(a)
+					};
+					if ("" !== e) {
+						if (b.keyterms.terms) {
+							i = 0;
+							var h = b.keyterms.terms,
+								k = b.keyterms.matches,
+								q = 0;
+							results = [];
+							for (i = 0; i < c(h); i++) {
+								var d = "m_" + (i + 1); - 1 < h["t_" + (i + 1)].indexOf(g) && (q++, results.push(k[d]))
+							}
+							if (0 < q) {
+								b.toggleAutocompleteList(!0);
+								for (i = i = 0; i < q; i++) g = a(results[i].name.trim()), k = '<span class="ucfhb-search-autocomplete-name">' + g + "</span>", h = "" !== results[i].url ? a(results[i].url.trim()) : b.searchAction + urlq, d = document.createElement("li"), d.innerHTML = '<a class="' + b.searchKeytermLinkClass + '" href="' + h + '" tabindex="0">' + k + "</a>", d.setAttribute("data-name-val", g), b.autocompleteList.appendChild(d), k = d.getElementsByTagName("a")[0], ucfhbAssignTrackingListener(k, "click", new String(h), r, "" + g);
+								x();
+								b.updateAutocompleteHelp(q, e)
+							} else f(urlq, function (g) {
+								if (g && null !== g.results && 0 < g.results.length) {
+									b.toggleAutocompleteList(!0);
+									for (i = i = 0; i < g.results.length; i++) {
+										q++;
+										var h = null !== g.results[i].name ? a(g.results[i].name.trim()) : "",
+											c = '<span class="ucfhb-search-autocomplete-name">' + h + "</span>",
+											k = null !== g.results[i].organization ? '<span class="ucfhb-search-autocomplete-org">' + a(g.results[i].organization.trim()) + "</span>" : "",
+											d = b.searchAction + encodeURIComponent(h),
+											m = document.createElement("li");
+										m.innerHTML = '<a class="' + b.searchResultsLinkClass + '" href="' + d + '" tabindex="0" >' + c + k + "</a>";
+										m.setAttribute("data-name-val", h);
+										c = m.getElementsByTagName("a")[0];
+										ucfhbAssignTrackingListener(c, "click", new String(d), s, "" + h);
+										b.autocompleteList.appendChild(m)
+									}
+									x();
+									b.updateAutocompleteHelp(q, e)
+								} else b.toggleAutocompleteList(!1), b.updateAutocompleteHelp(0, e)
+							})
+						}
+					} else b.toggleAutocompleteList(!1), b.updateAutocompleteHelp(0, null)
+				};
 				
+				this.acListKeystrokeSelect =
+		
+				function (a) {
+					var c = b.autocompleteList,
+						e = c.firstChild,
+						g = c.lastChild,
+						d = b.autocompleteSelectedId,
+						h = c = null,
+						h = null,
+						c = document.getElementById(d) ? document.getElementById(d) : e,
+						k = function (a, c, h) {
+							var k = "";
+							a.id = "";
+							e.id = "";
+							g.id = "";
+							null !== c ? (h.id = "", c.id = d, k = c.getAttribute("data-name-val")) : (h.id = d, k = h.getAttribute("data-name-val"));
+							b.searchField.value = k;
+							a = null;
+							document.createEvent ? (a = document.createEvent("KeyboardEvent"), a["undefined" !== typeof a.initKeyboardEvent ? "initKeyboardEvent" : "initKeyEvent"]("keydown", !0, !0, window, !1, !1, !1, !1, 39, 0), document.dispatchEvent(a)) : document.createEventObject && (a = document.createEventObject("KeyboardEvent"), a.keyCode = 39, b.searchField.fireEvent("onkeydown", a))
+						};
+					b.isSearchActive() && document.activeElement == b.searchField && (40 == a ? (h = document.getElementById(d) ? c.nextSibling : e, k(c, h, e)) : 38 == a && (h = c.previousSibling, k(c, h, g)))
+				};
 				this.searchOnKeyUp = function (a, c) {
 					clearTimeout(d);
+					d = setTimeout(function () {
+						b.outputResults(a, c)
+					}, 550)
 				};
 				this.initialize = function () {
 					var c = null,
 						d = null;
+					b.searchField.onkeyup =
+		
+					function (g) {
+						g = g || window.event;
+						keycode = g.which || g.keyCode;
+						c = a(b.searchField.value);
+						d = b.searchService + c;
+						"number" == typeof keycode && (8 == keycode || 44 < keycode) || !1 === b.isSearchActive() && null !== b.searchField.value && "" !== b.searchField.value && 40 === keycode ? b.searchOnKeyUp(c, d) : b.acListKeystrokeSelect(keycode)
+					};
 					b.searchField.onfocus = function () {
 						c = a(b.searchField.value);
 						d = b.searchService + c;
-						"" !== b.searchField.value && null !== b.searchField.value && b.searchOnKeyUp(c, d)
+						!1 === b.isSearchActive() && "" !== b.searchField.value && null !== b.searchField.value && b.searchOnKeyUp(c, d)
 					};
+					var e = function (a) {
+						a.preventDefault ? a.preventDefault() : a.returnValue = !1;
+						(a = document.getElementById(b.autocompleteSelectedId)) && !0 === b.isSearchActive() ? (a = a.getElementsByTagName("a")[0]) && (-1 < a.className.indexOf(b.searchKeytermLinkClass) ? ucfhbTrackAction(a.getAttribute("href"), r, b.searchField.value) : -1 < a.className.indexOf(b.searchResultsLinkClass) && ucfhbTrackAction(a.getAttribute("href"), s, b.searchField.value)) : (a = b.searchForm.getAttribute("data-action-url") + encodeURIComponent(b.searchField.value), ucfhbTrackAction(a, l, b.searchField.value))
+					};
+					b.searchForm.addEventListener ? b.searchForm.addEventListener("submit", e, !1) : b.searchForm.attachEvent && b.searchForm.attachEvent("onsubmit", e);
+					b.autocompleteCloseBtn.onclick = function () {
+						b.toggleAutocompleteList(!1)
+					};
+					document.addEventListener ? document.addEventListener("click", function (a) {
+						(a.target || a.srcElement) && a.target.getAttribute("id") !== b.searchSubmit.getAttribute("id") && w(a, b.autocompleteList) && b.isSearchActive() && b.toggleAutocompleteList(!1)
+					}) : document.attachEvent("onclick", function (a) {
+						w(a, b.autocompleteList) && b.isSearchActive() && b.toggleAutocompleteList(!1)
+					})
 				}
 			}
 			var l = "search",
+				r = "autocomplete-keyterm-search",
+				s = "autocomplete-search",
 				u = window.location.protocol + addressWO+"styles/bar.css",
 				A = window.location.protocol + "//universityheader.ucf.edu/bar/css/bar-bootstrap.css",
 				v = window.location.protocol + "//universityheader.ucf.edu/bar/data/?search=",
 				y = !1,
 				z = null;
-				document.getElementById("ucfhb-script") && (z = document.getElementById("ucfhb-script"), -1 < z.getAttribute("src").indexOf("use-bootstrap-overrides=1") && (y = !0));
+			document.getElementById("ucfhb-script") && (z = document.getElementById("ucfhb-script"), -1 < z.getAttribute("src").indexOf("use-bootstrap-overrides=1") && (y = !0));
 			Array.prototype.indexOf || (Array.prototype.indexOf = function (c) {
 				if (null == this) throw new TypeError;
 		
@@ -162,6 +520,100 @@ function initialize_jQuery_black_bar(){
 				for (a = 0 <= a ? a : Math.max(p - Math.abs(a), 0); a < p; a++) if (a in f && f[a] === c) return a;
 				return -1
 			});
+			"object" !== typeof JSON && (JSON = {});
+			(function () {
+				function c(a) {
+					return 10 > a ? "0" + a : a
+				}
+				function a(a) {
+					b.lastIndex = 0;
+					return b.test(a) ? '"' + a.replace(b, function (a) {
+						var b = m[a];
+						return "string" === typeof b ? b : "\\u" + ("0000" + a.charCodeAt(0).toString(16)).slice(-4)
+					}) + '"' : '"' + a + '"'
+				}
+				function f(b, c) {
+					var h, k, q, p, m = d,
+						t, n = c[b];
+					n && "object" === typeof n && "function" === typeof n.toJSON && (n = n.toJSON(b));
+					"function" === typeof e && (n = e.call(c, b, n));
+					switch (typeof n) {
+					case "string":
+						return a(n);
+					case "number":
+						return isFinite(n) ? String(n) : "null";
+					case "boolean":
+					case "null":
+						return String(n);
+					case "object":
+						if (!n) return "null";
+						d += l;
+						t = [];
+						if ("[object Array]" === Object.prototype.toString.apply(n)) {
+							p =
+							n.length;
+							for (h = 0; h < p; h += 1) t[h] = f(h, n) || "null";
+							q = 0 === t.length ? "[]" : d ? "[\n" + d + t.join(",\n" + d) + "\n" + m + "]" : "[" + t.join(",") + "]";
+							d = m;
+							return q
+						}
+						if (e && "object" === typeof e) for (p = e.length, h = 0; h < p; h += 1)"string" === typeof e[h] && (k = e[h], (q = f(k, n)) && t.push(a(k) + (d ? ": " : ":") + q));
+						else for (k in n) Object.prototype.hasOwnProperty.call(n, k) && (q = f(k, n)) && t.push(a(k) + (d ? ": " : ":") + q);
+						q = 0 === t.length ? "{}" : d ? "{\n" + d + t.join(",\n" + d) + "\n" + m + "}" : "{" + t.join(",") + "}";
+						d = m;
+						return q
+					}
+				}
+				"function" !== typeof Date.prototype.toJSON && (Date.prototype.toJSON =
+		
+				function () {
+					return isFinite(this.valueOf()) ? this.getUTCFullYear() + "-" + c(this.getUTCMonth() + 1) + "-" + c(this.getUTCDate()) + "T" + c(this.getUTCHours()) + ":" + c(this.getUTCMinutes()) + ":" + c(this.getUTCSeconds()) + "Z" : null
+				}, String.prototype.toJSON = Number.prototype.toJSON = Boolean.prototype.toJSON = function () {
+					return this.valueOf()
+				});
+				var p = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+					b = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+					d, l, m = {
+						"\b": "\\b",
+						"\t": "\\t",
+						"\n": "\\n",
+						"\f": "\\f",
+						"\r": "\\r",
+						'"': '\\"',
+						"\\": "\\\\"
+					},
+					e;
+				"function" !== typeof JSON.stringify && (JSON.stringify = function (a, b, c) {
+					var k;
+					l = d = "";
+					if ("number" === typeof c) for (k = 0; k < c; k += 1) l += " ";
+					else "string" === typeof c && (l = c);
+					if ((e = b) && "function" !== typeof b && ("object" !== typeof b || "number" !== typeof b.length)) throw Error("JSON.stringify");
+					return f("", {
+						"": a
+					})
+				});
+				"function" !== typeof JSON.parse && (JSON.parse = function (a, b) {
+					function c(a, e) {
+						var d, g, k = a[e];
+						if (k && "object" === typeof k) for (d in k) Object.prototype.hasOwnProperty.call(k, d) && (g = c(k, d), void 0 !== g ? k[d] = g : delete k[d]);
+						return b.call(a, e, k)
+					}
+					var e;
+					a = String(a);
+					p.lastIndex = 0;
+					p.test(a) && (a = a.replace(p, function (a) {
+						return "\\u" + ("0000" + a.charCodeAt(0).toString(16)).slice(-4)
+					}));
+					if (/^[\],:{}\s]*$/.test(a.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, "@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, "]").replace(/(?:^|:|,)(?:\s*\[)+/g, ""))) return e = eval("(" + a + ")"), "function" === typeof b ? c({
+						"": e
+					}, "") : e;
+					throw new SyntaxError("JSON.parse");
+				})
+			})();
+			"function" !== typeof String.prototype.trim && (String.prototype.trim = function () {
+				return this.replace(/^\s+|\s+$/g, "")
+			});
 			var C = function (c, a, f) {
 				var p = document.getElementsByTagName("head")[0],
 					b = document.createElement("script");
@@ -170,10 +622,10 @@ function initialize_jQuery_black_bar(){
 				b.id = "ucfhb-json";
 				p.appendChild(b);
 				"undefined" !== typeof a && null !== a && setTimeout(function () {
-					a();
+					a()
 				}, f)
-			};
-						var D = function () {
+			},
+				D = function () {
 					(new f).initialize();
 					(function () {
 						var c = document.getElementById("ucfhb"),
@@ -188,9 +640,10 @@ function initialize_jQuery_black_bar(){
 						searchField = document.getElementById("ucfhb-search-field");
 						searchBtn = document.getElementById("ucfhb-search-submit");
 						searchMinimal = document.getElementById("ucfhb-search-minimal");
+						searchAutocomplete = document.getElementById("ucfhb-search-autocomplete");
 		
 						shiftLeftElems = [d];
-						mobileToggleElems = [c, a, f, b];
+						mobileToggleElems = [c, a, f, b, searchAutocomplete];
 						var m = function (a, b) {
 							for (var c = a.length, d = 0; d < c; d++) - 1 < a[d].className.indexOf("ucfhb-gold") ? a[d].className = "ucfhb-gold " + b : a[d].className = b
 						};
@@ -259,22 +712,24 @@ function initialize_jQuery_black_bar(){
 				}
 			})(window, function () {
 				var c = document.getElementsByTagName("head")[0],
-					a = document.createElement("link");
+					a = document.createElement("link"),
+					fa = document.createElement("link");
 				a.setAttribute("href", u);
 				a.setAttribute("rel", "stylesheet");
 				a.setAttribute("type", "text/css");
 				c.appendChild(a);
-				//Adds Font Awesome
+
 				u = "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css";
-				a.setAttribute("href", u);
-				a.setAttribute("rel", "stylesheet");
-				a.setAttribute("type", "text/css");
-				c.appendChild(a);
+				fa.setAttribute("href", u);
+				fa.setAttribute("rel", "stylesheet");
+				fa.setAttribute("type", "text/css");
+				c.appendChild(fa);
+				//!0 === y && (a = document.createElement("link"), a.setAttribute("href", A), a.setAttribute("rel", "stylesheet"), a.setAttribute("type", "text/css"), c.appendChild(a));
 				c = null;
 				document.getElementById("ucfhb") ? c = document.getElementById("ucfhb") : (c = document.createElement("div"), c.id = "ucfhb", document.body.insertBefore(c, document.body.firstChild));
 				c.className += "preload";
 				
-			c.innerHTML = [
+				c.innerHTML = [
 				'<div style="margin: 0px; border: none;background-color:#000;">\n' +
 					'<div id="ucfhb-inner" style="display:none; height:50px;">\n' +
 						'<div id="ucfhb-left" >\n' +
@@ -322,23 +777,11 @@ function initialize_jQuery_black_bar(){
 								'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
 							'</div>\n</div>\n</div>\n</div>\n</div>' +
 							//Search Bar
-							'<div id="ucfhb-search">\n' + 
-								'<form id="ucfhb-search-form" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off" '+ 
-								  'action="http://google.cc.ucf.edu/search" data-action-url="http://google.cc.ucf.edu/search?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q=" method="get" >\n' +
-								'<label for="ucfhb-search-field">Search ORC</label>\n'+
-								'<input type="hidden" name="client" value="UCF_Main" />\n'+
-								'<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
-								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" role="search"/>\n'+
-								'<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n'+
-								// '<input type="hidden" name="access" value="*">\n'+
-								'<input id="ucfhb-search-submit" class="button-add fa fa-search" style="color:#000;" type="submit" />\n'+
-							'</form>\n' + 
-							'<span id="ucfhb-search-autocomplete-srhelp" role="status" aria-live="polite"></span>\n<a id="ucfhb-search-minimal" href="#">Search</a>\n</div>\n<ul id="ucfhb-search-autocomplete" tabindex="1" aria-hidden="true" role="listbox" ></ul>\n<a style="display:none;" id="ucfhb-search-autocomplete-close" href="#" alt="Close autocomplete results" title="Close autocomplete results">&times;</a>\n</div>\n</div>\n' +
-					'</div>\n</div>\n' ].join("\n");
-				// document.getElementById("ucfhb-search-form").addEventListener("submit", function(){
-				// 	SearchWebPage();
-				// });
-
+							'<div id="ucfhb-search">','<form target="_blank" formtarget="_blank" action="http://google.cc.ucf.edu/search" data-action-url="http://google.cc.ucf.edu/search?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q="  method="get" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off">', '<label for="ucfhb-search-field">Search ORC</label>\n<input type="hidden" name="client" value="UCF_Main" />\n<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" autocomplete="off" autocapitalize="off" aria-autocomplete="off" aria-owns="ucfhb-search-autocomplete" aria-activedescendant="ucfhb-autocomplete-selected" aria-haspopup="true" role="search" />\n<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n<button id="ucfhb-search-submit" class="button-add fa fa-search" style="text-indent:0px !important; font-size:small;color:#000;" type="button" value="Go" onclick="" />\n</form>\n<span id="ucfhb-search-autocomplete-srhelp" role="status" aria-live="polite"></span>\n<a id="ucfhb-search-minimal" href="#">Search</a>\n</div>\n<ul id="ucfhb-search-autocomplete" tabindex="1" aria-hidden="true" role="listbox" ></ul>\n<a style="display:none;" id="ucfhb-search-autocomplete-close" href="#" alt="Close autocomplete results" title="Close autocomplete results">&times;</a>\n</div>\n</div>\n' +
+					'</div>\n' +
+				'</div>\n'
+				].join("\n");
+				
 				//Adds space to compensate for the navbar.
 				var divSpace = document.createElement("div");
 				black_bar_jQuery(divSpace).attr("id","divSpace");
@@ -348,7 +791,6 @@ function initialize_jQuery_black_bar(){
 				//Changes Glyphicon for the mobile-slide-toggle & animates and additional
 				//margin-spacing for devices under 768px in width 
 				black_bar_jQuery('#ucfhb-mobile-toggle').click(function() {
-					//black_bar_jQuery(this).toggleClass('fa-arrow-circle-down').toggleClass('fa-arrow-circle-up');
 					black_bar_jQuery(this).find('span').toggleClass('fa-arrow-circle-down').toggleClass('fa-arrow-circle-up');
 					if(divSpace.style.marginTop == '50px'){black_bar_jQuery(divSpace).animate({marginTop: '100px'});}
 					else black_bar_jQuery(divSpace).animate({marginTop: '50px'});
@@ -357,11 +799,12 @@ function initialize_jQuery_black_bar(){
 				black_bar_jQuery(window).resize(function() {
 					if(black_bar_jQuery(window).width() > 767){black_bar_jQuery(divSpace).animate({marginTop: '50px'});}
 				});
-			D()
+
+
+				D()
 			})
 		})();
 		
 }
-
 
 
