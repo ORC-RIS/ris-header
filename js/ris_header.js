@@ -34,9 +34,9 @@ function initialize_jQuery_black_bar(){
 	var searchResultsTarget = "content";
 	var searchInputId = "ucfhb-search-field"; 
 	var searchForm	= "ucfhb-search-form";
-	var address = "//header.webdev1.research.ucf.edu/";
-	var risappsaddress = "https://myresearch.webdev1.research.ucf.edu/";
-	var addressWO = "//header.webdev1.research.ucf.edu/";
+	var address = "//header.research.ucf.edu/";
+	var risappsaddress = "http://apps.research.ucf.edu/";
+	var addressWO = "//header.research.ucf.edu/";
 	var searchControl;
 
 	ExecuteWebSiteSearchQuery = function(){
