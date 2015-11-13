@@ -34,9 +34,9 @@ function initialize_jQuery_black_bar(){
 	var searchResultsTarget = "content";
 	var searchInputId = "ucfhb-search-field"; 
 	var searchForm	= "ucfhb-search-form";
-	var address = "//header.webdev1.research.ucf.edu/";
-	var risappsaddress = "https://myresearch.webdev1.research.ucf.edu/";
-	var addressWO = "//header.webdev1.research.ucf.edu/";
+	var address = "//header.research.ucf.edu/";
+	var risappsaddress = "http://apps.research.ucf.edu/";
+	var addressWO = "//header.research.ucf.edu/";
 	var searchControl;
 
 	ExecuteWebSiteSearchQuery = function(){
@@ -299,7 +299,7 @@ function initialize_jQuery_black_bar(){
 								  'action="http://google.cc.ucf.edu/search" data-action-url="http://google.cc.ucf.edu/search?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q=" method="get" >\n' +
 								'<label for="ucfhb-search-field">Search ORC</label>\n'+
 								'<input type="hidden" name="client" value="UCF_Main" />\n'+
-								// '<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
+								'<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
 								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" role="search"/>\n'+
 								'<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n'+
 								// '<input type="hidden" name="access" value="*">\n'+
