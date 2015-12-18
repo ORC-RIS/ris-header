@@ -18,6 +18,7 @@ margin-bottom: 10px;
 font-size: 9px;
 margin-left: 5px;
 }
+button:focus{outline:0;}
 #drawerHeader{ background-color:#F5C300; padding: 18px !important;}
 #drawerSearch:focus{ border-color:#F5C22B}
 #drawerSearchBttn{ position: relative;float: left; top: -15px; left: -15px;}
@@ -58,7 +59,7 @@ input.button-add {
     cursor: pointer !important;        /* make the cursor like hovering over an <a> element */
     height: 16px  !important;           /* make this the size of your image */
     vertical-align: middle  !important; /* align the text vertically centered */
-	padding: 0.0em 0.45em !important;
+	/*padding: 0.0em 0.45em !important;*/
 	margin: 0em !important;
 }
 /*end of appdrawer*/
@@ -135,6 +136,11 @@ input.button-add {
 /* Common miscellaneous overrides */
 #ucfhb a { border: 0; z-index: 9 !important; text-align: center !important;}
 
+/*New Wrapper id Added 11/25/2015*/
+#ucfhb-wrapper{
+	margin:0px;padding-top:5px;border: none;background-color:#000;
+}
+
 /* Inner wrap (fixed 940px width) */
 /* display: block is added to override display:none inline styles, which prevent 
  * plaintext content flicker if the header css hasn't appended before the bar content. */
@@ -143,19 +149,25 @@ input.button-add {
 /* The left-hand portion of the header */
 #ucfhb-left { float: left; padding-top: 11px; width: 320px; line-height: normal !important; }
 #ucfhb-mobile-toggle {
-	float: right;
-	font-size: small;
-	display: none;
-	width: 30px;
-	height: 30px;
-	text-indent: -9999px;
-	position: absolute;
-	right: 2px;
-	background-position: -166px -136px;
+/*	background-color:#000;
+	color:#FFC904;
+	border:none;
+	margin:0px;
+
+	text-indent:0px;*/
+
+
+	/*float: right;*/
+	/*font-size: small;*/
+	/*display: none;*/
+	/*width: 30px;*/
+	/*height: 30px;*/
+	/*text-indent: -9999px;*/
+	/*position: absolute;*/
+	/*right: 2px;*/
+	/*background-position: -166px -136px;*/
 }
-#ucfhb-mobile-toggle{
-	margin-right:11px;
-}
+
 #ucfhb-mobile-toggle.ucfhb-mobileslide { background-position: -198px -136px; }
 #ucfhb-mobile-toggle:focus { outline: 0; }
 #ucfhb-logo { float: left; padding-top: 2px; margin-left:20px; }
@@ -166,6 +178,19 @@ input.button-add {
 	display: block;
 	text-indent: -9999px;
 	background-position: -2px -9px;
+}
+/* New Styles added 11/23/2015 John Lynch */
+#ucfhb-button-menu{
+	width: 61px;
+	visibility: hidden;
+	border-left: solid 1px #555;
+	float:right;
+}
+.ucfhb-button-menu-item {
+	border:none;
+	margin-right:6px;
+	color:#FFC904;
+	background-color:#000;
 }
 
 #ucfhb-logo-main {
@@ -570,6 +595,7 @@ input.button-add {
 
 /* Small tablet size (>=767px) */ 
 @media (max-width: 767px) {
+	#ucfhb-button-menu{visibility: visible;}
 	#ucfhb {
 		height: 100px;
 		margin-top: -51px;
@@ -593,34 +619,37 @@ input.button-add {
 	}
 	#ucfhb-logo { padding-left: 3px; }
 	#ucfhb-left { width: 100%; height: 39px; position: absolute; top: 50px; float: none; } /* height accounts for padding-top */
-	#ucfhb-mobile-toggle { display: block; }
 
 	/* Shift the right-hand portion to the top of ucfhb-inner */
 	#ucfhb-right {
 		border-bottom: none !important;
-		float: none;
 		height: 49px; /* Accomodate for border-bottom */
 		padding-left: 50px;
-		position: absolute;
 		top: 0;
 		visibility: visible;
 		width: 100%;
+
+		/*Testing for new 2-button setup*/
+		/*Styles Below have been commented out*/
+		/*position: absolute;*/
+		/*float: none;*/
 	}
 	#ucfhb-signon,
 	#ucfhb-search {
+
 		width: 50%;
-		position: static;
+		/*position: static;*/
 		float: right;
 		padding: 0;
-		margin: 3px 0 0 0;
+		margin: 13px 0 0 0;
 		right: 0;
 		left: 0;
 		border: 0;
 	}
-	#ucfhb-signon { float: left;height: 45px; margin: 0px; overflow: hidden;}
+	#ucfhb-signon { float: left;height: 45px; margin: 0px; overflow: hidden; position: static;}
 	#ucfhb-signon-logo { display: none; }
 	#ucfhb-services {
-		margin-top: 100px;
+		margin-top: 145px;
 		position: absolute;
 		padding: 0;
 		width: auto;
@@ -660,7 +689,7 @@ input.button-add {
 	#ucfhb-search form #ucfhb-search-submit {
 		/*height: 37px;*/
 		height:30px !important;
-		right: 14px;
+		/*right: 14px;*/
 		background-position: 10px -132px;
 	}
 
@@ -698,26 +727,32 @@ input.button-add {
 		display: block; /* Don't let results stack on top of the bar when resized down */
 	}
 	#list{padding:2px;}
-	.arrow-up {float:left; margin-left:40px;}
+	.arrow-up {float:right; margin: -10px 0px 0px 0px;}
 }
 
 /* Phone size (>=480px) */
 @media (max-width: 480px) {
+/*	#ucfhb-button-menu {width: 15%;}
+	#ucfhb-button-menu span {font-size:smaller!important;}
+	#uchhb-button-menu button {}*/
+	#ucfhb-search-submit{right:0px;}
 	#ucfhb {
 		height: 100px !important;
 		margin-top: -51px;
 	}
 	#ucfhb-inner { height: 100px; }
-	#ucfhb-logo a img { width: 234px; height: 13px; max-width: 234px; }
+	#ucfhb-logo img { width: 100%;/* height: 13px; max-width: 234px;*/ padding-left: 1%; padding-top:1%;}
 	#ucfhb-right { height: 50px;padding-left:45px;} /* Accounts for border-bottom */
 	#ucfhb-signon {margin-left: -40px;}
 	#ucfhb-signon,#ucfhb-search {width: 100% !important;}
 	#ucfhb-search { margin-top: 7px; }
-	#ucfhb-search form {float: right; margin: 0px; width: 160px;}
+	#ucfhb-search form {/*float: right;*/ margin: 0 auto; width: 220px;}
 	#ucfhb-search-autocomplete { width: 100%; right: 0; top: 93px; }
 	#ucfhb-search-autocomplete-close { bottom: -23px; }
 	#ucfhb-search-field {width:106px !important;}
-	.arrow-up {float:left;margin-left:0px;}
+	.arrow-up {/*float:left;*/margin-left:270px;}
+
+	/*#ucfhb-logo-main img {width:248px; max-width: none !important; height:20px!important;}*/
 
 }
 
@@ -771,24 +806,29 @@ input.button-add {
  * GOLD BAR: RESPONSIVE OVERRIDES
  **/
 @media (max-width: 767px) {
+	#ucfhb-wrapper {padding:0;}
+
 	#ucfhb-left { border-top:solid 1px #ffcc00; }
 	.ucfhb-gold #ucfhb-logo { padding-left: 17px; }
  	.ucfhb-gold #ucfhb-right { border-bottom: 1px solid #E5BA1D; }
  	.ucfhb-gold #ucfhb-search { border-left: 0; }
  	.ucfhb-gold #ucfhb-search form #ucfhb-search-submit { background-position: 10px -132px; }
+
+ 	#ucfhb-search {margin: 7px auto; right: 4px; padding:0px;}
+	#ucfhb-search form {}
+	#ucfhb-search-field {margin-left:0px;width:155px!important;}
+	#ucf-research-apps {margin-left:0px;}
+
+	#ucfhb-mobile-toggle{text-indent: 0px;}
+
+	#ucfhb-signon-logo1 {visibility: hidden;}
 } 
 /* Adding the hidden classes from bootstrap */
 @media (max-width:767px){.hidden-xs{display:none!important}}@media (min-width:768px) and (max-width:991px){.hidden-sm{display:none!important}}@media (min-width:992px) and (max-width:1199px){.hidden-md{display:none!important}}@media (min-width:1200px){.hidden-lg{display:none!important}}.visible-print{display:none!important}@media print{.visible-print{display:block!important}table.visible-print{display:table}tr.visible-print{display:table-row!important}td.visible-print,th.visible-print{display:table-cell!important}}.visible-print-block{display:none!important}@media print{.visible-print-block{display:block!important}}.visible-print-inline{display:none!important}@media print{.visible-print-inline{display:inline!important}}.visible-print-inline-block{display:none!important}@media print{.visible-print-inline-block{display:inline-block!important}}@media print{.hidden-print{display:none!important}}
 
-@media (max-width:767px){
-	#ucfhb-search {right: 4px; padding:0px;}
-	#ucfhb-search form {}
-	#ucfhb-search-field {margin-left:0px;width:155px!important;}
-	#ucf-research-apps {margin-left:0px;}
-}
-
 @media (max-width: 480px) {
-	#ucfhb-search-field {width:50% !important;}
+	#ucfhb-logo {width:75%;margin-left: 5px;padding:0px;}
+	#ucfhb-search-field {width:65% !important;}
 }
 
 @media (min-width: 980px) {
@@ -801,4 +841,12 @@ input.button-add {
 
 @media print{
 	.preload, .preload * {display: none !important;}
+}
+
+@media(max-width: 320px){
+	#ucfhb-button-menu {width: 45px;}
+	#ucfhb-mobile-toggle {padding-right: 0px;}
+	#ucfhb-mobile-toggle span {font-size: smaller !important;}
+	#ucfhb-signon-logo2 {padding-right: 5px !important;}
+	#ucfhb-signon-logo2 span {font-size: medium !important;}
 }

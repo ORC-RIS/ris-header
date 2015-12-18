@@ -16,6 +16,8 @@ function initialize_jQuery_black_bar(){
 		var m = function (a, b) {
 			for (var c = a.length, d = 0; d < c; d++) - 1 < a[d].className.indexOf("ucfhb-gold") ? a[d].className = "ucfhb-gold " + b : a[d].className = b
 		};	
+		var app_button1 = black_bar_jQuery("#ucfhb-mobile-toggle");
+		var app_button2 = black_bar_jQuery("#ucfhb-signon-logo2");
 		var app_menu = black_bar_jQuery("#Drawer");
 		var imgsrc = black_bar_jQuery("#ucf-research-apps");
 		d = document.getElementById("ucfhb-signon-logo1");
@@ -24,11 +26,18 @@ function initialize_jQuery_black_bar(){
 		if (!app_menu.is(e.target) && !imgsrc.is(e.target) // if the target of the click isn't the container...
 			&& app_menu.has(e.target).length === 0) // ... nor a descendant of the container
 		{
+			//console.log(e.target);
 			black_bar_jQuery("#ucf-research-apps").attr("src", ""+address+"Images/appdrawer.png");
 			document.getElementById("ucf-research-apps").onmouseout = function(){
 				  black_bar_jQuery("#ucf-research-apps").attr("src", ""+address+"Images/appdrawer.png");
 			};
-			m(shiftLeftElems, ""), searchField.removeAttribute("tabindex"), searchBtn.removeAttribute("tabindex") ;
+			black_bar_jQuery(app_button2).css("color", "#FFC904");
+			// app_button2.onmouseout = function(){
+			// 	  black_bar_jQuery(app_button2).css("color", "#FFC904")
+			// };
+
+			m(shiftLeftElems, ""), searchField.removeAttribute("tabindex"), searchBtn.removeAttribute("tabindex");
+			//black_bar_jQuery(app_button2).attr("clicked",0);
 		}
 	});
 	var searchResultsTarget = "content";
@@ -153,20 +162,25 @@ function initialize_jQuery_black_bar(){
 							p = f.firstElementChild || f.firstChild,
 							b = document.getElementById("ucfhb-right"),
 							d = document.getElementById("ucfhb-signon-logo1");
+							d2 = document.getElementById("ucfhb-signon-logo2");
 						document.getElementById("ucfhb-signon");
 						var l = document.getElementById("ucfhb-search");
 						document.getElementById("ucfhb-search-form");
 						searchField = document.getElementById("ucfhb-search-field");
 						searchBtn = document.getElementById("ucfhb-search-submit");
 						searchMinimal = document.getElementById("ucfhb-search-minimal");
-		
+						
 						shiftLeftElems = [d];
 						mobileToggleElems = [c, a, f, b];
 						var m = function (a, b) {
 							for (var c = a.length, d = 0; d < c; d++) - 1 < a[d].className.indexOf("ucfhb-gold") ? a[d].className = "ucfhb-gold " + b : a[d].className = b
 						};
+
+						black_bar_jQuery(d2).attr("clicked", 0);
 		
 						d.onclick = function() {
+								console.log("d clicked.")
+								document.getElementById("Drawer").style.marginTop = "-45px";
 							  if(document.getElementById("ucf-research-apps").getAttribute("mouseoutflag") == "1"){
 								  black_bar_jQuery("#ucf-research-apps").attr("src", ""+address+"Images/appdrawer_hover.png");
 								  document.getElementById("ucf-research-apps").onmouseout = function(){
@@ -183,6 +197,21 @@ function initialize_jQuery_black_bar(){
 								  m(shiftLeftElems, ""), searchField.removeAttribute("tabindex"), searchBtn.removeAttribute("tabindex") ;
 							  }
 						};
+						//Code for 2nd menu button
+						var count;
+						d2.onclick = function() {
+							document.getElementById("Drawer").style.marginTop = "0px";
+							if (this.getAttribute("clicked") == 0){
+								black_bar_jQuery(this).css("color", "#F5D769");
+								m(shiftLeftElems, "ucfhb-shiftleft"), searchField.setAttribute("tabindex", "-1"), searchBtn.setAttribute("tabindex", "-1");
+								this.setAttribute("clicked", 1);
+							}
+							else{
+								black_bar_jQuery(this).css("color", "#FFC904");
+								m(shiftLeftElems, ""), searchField.removeAttribute("tabindex"), searchBtn.removeAttribute("tabindex") ;
+								this.setAttribute("clicked", 0);
+							}
+						}
 						
 						searchMinimal.onclick = function () {
 							m(shiftLeftElems, "");
@@ -191,7 +220,17 @@ function initialize_jQuery_black_bar(){
 							searchBtn.removeAttribute("tabindex")
 						};
 						a.onclick = function () {
-							"ucfhb-mobileslide" == a.className ? m(mobileToggleElems, "") : m(mobileToggleElems, "ucfhb-mobileslide")
+							if (a.className == "ucfhb-mobileslide" ){
+								m(mobileToggleElems, "");
+								black_bar_jQuery(this).css("color", "#FFC904");
+							}
+							else {
+								m(mobileToggleElems, "ucfhb-mobileslide");
+								black_bar_jQuery(this).css("color", "#F5D769");
+							}
+
+							//"ucfhb-mobileslide" == a.className ? m(mobileToggleElems, "") : m(mobileToggleElems, "ucfhb-mobileslide");
+							d2.setAttribute("clicked",0);
 						};
 		
 					})()
@@ -247,15 +286,23 @@ function initialize_jQuery_black_bar(){
 				c.className += "preload";
 				
 			c.innerHTML = [
-				'<div style="margin: 0px; border: none;background-color:#000;">\n' +
+				'<div id="ucfhb-wrapper">\n' +
 					'<div id="ucfhb-inner" style="display:none; height:50px;">\n' +
 						'<div id="ucfhb-left" >\n' +
-							'<button id="ucfhb-mobile-toggle" style="background-color:#000;border:none;color:#FFC904;padding:0px 5px;text-indent:0px;width:20px;" type="button">\n' +
-								'<span style="font-size:small;" class="fa fa-arrow-circle-down" ></span>\n' +
+							//Menu bar buttons
+							'<div id="ucfhb-button-menu">\n' +
+							//Bring down RIS bar for search
+							'<button id="ucfhb-signon-logo2" style="padding-right:10px;border:none;margin:0px;color:#FFC904;background-color:#000;float:right;" type="button">\n' +
+								'<span style="font-size:18px;" class="fa fa-th" ></span>\n' +
 							'</button>\n' +
+							'<button id="ucfhb-mobile-toggle" style="border:none;margin:0px;color:#FFC904;background-color:#000;" type="button">\n' +
+								'<span style="font-size:medium;" class="fa fa-search" ></span>\n' +
+							'</button>\n' +
+							'</div>\n' +
+							//New App Hover
 							'<div id="ucfhb-logo">' +
-								'<div id="ucfhb-logo-main" style="max-width:100%;height:auto;position:fixed;width:82%;" class="hidden-md hidden-sm hidden-lg">\n' +
-									'<img src="//header.research.ucf.edu/Images/ucf_research_logo.png" usemap="#logos" style="max-width:85%;height:auto;">\n' +
+								'<div id="ucfhb-logo-main" style="max-width:100%;height:auto;position:fixed;width:77%;" class="hidden-md hidden-sm hidden-lg">\n' +
+									'<img src="//header.research.ucf.edu/Images/ucf_research_logo.png" usemap="#logos" style="height:auto;">\n' +
 										'<map name="logos"><area shape="rect" coords="0,0,321,27" href="http://www.ucf.edu/" title="UCF Main Site" alt="UCF Main Site">\n' +
 										'<area shape="rect" coords="0,0,407,27" href="http://www.research.ucf.edu/" title="ORC Main Site" alt="ORC Main Site"></map>\n' +
 								'</div>\n' +
@@ -266,6 +313,24 @@ function initialize_jQuery_black_bar(){
 								'</div>\n' +
 								'</div>\n' +
 						'</div>\n' +
+						'<div id="ucfhb-services" style="z-index:9;">\n' +
+							'<div id="Drawer" style="margin-top:-45px;">' +
+							'<center>' +
+							'<div class="arrow-up">' +
+							'</div>' +
+							'</center>\n\n' +
+							'<div id="list">\n' +
+								'<ul>\n' +
+									'<li >\n<a href="https://argis.research.ucf.edu/index.cfm?fuseaction=home.main&Content=home.adminlogin" target="_blank"><img src="'+address+'images/ldg_argis.png" width="90" height="45"/></a>\n</li>\n' +
+									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="90" height="45"/></a>\n</li>\n' +
+									'<li class="removeSidebar"><a href="https://tera.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_tera.png" width="90" height="45"/></a>\n</li>\n' +
+								'</ul>\n' +
+								'<ul>\n' +
+									'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="90" height="45"/></a>\n</li>\n' +
+									'<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
+									'<li class="">\n<a href="https://ecrt4.research.ucf.edu/ecrt/" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="90" height="45"/></a>\n</li>\n' +
+								'</ul>\n'+
+								'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div></div></div>\n' +
 							//Start Right Aligned Content (Apps & SearchBar)
 							//RIS App Drawer
 						'<div id="ucfhb-right" >\n' +
@@ -295,21 +360,18 @@ function initialize_jQuery_black_bar(){
 							'</div>\n</div>\n</div>\n</div>\n</div>' +
 							//Search Bar
 							'<div id="ucfhb-search">\n' + 
-								'<form id="ucfhb-search-form" target="search_results" formtarget="search_results" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off" '+ 
+								'<form id="ucfhb-search-form" target="_blank" formtarget="_blank" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off" '+ 
 								  'action="http://google.cc.ucf.edu/search" data-action-url="http://google.cc.ucf.edu/search?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q=" method="get" >\n' +
 								'<label for="ucfhb-search-field">Search ORC</label>\n'+
 								'<input type="hidden" name="client" value="UCF_Main" />\n'+
-								// '<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
+								'<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
 								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" role="search"/>\n'+
 								'<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n'+
-								// '<input type="hidden" name="access" value="*">\n'+
 								'<input id="ucfhb-search-submit" class="button-add fa fa-search" style="color:#000;" type="submit" />\n'+
 							'</form>\n' + 
 							'<span id="ucfhb-search-autocomplete-srhelp" role="status" aria-live="polite"></span>\n<a id="ucfhb-search-minimal" href="#">Search</a>\n</div>\n<ul id="ucfhb-search-autocomplete" tabindex="1" aria-hidden="true" role="listbox" ></ul>\n<a style="display:none;" id="ucfhb-search-autocomplete-close" href="#" alt="Close autocomplete results" title="Close autocomplete results">&times;</a>\n</div>\n</div>\n' +
 					'</div>\n</div>\n' ].join("\n");
-				// document.getElementById("ucfhb-search-form").addEventListener("submit", function(){
-				// 	SearchWebPage();
-				// });
+
 
 				//Adds space to compensate for the navbar.
 				var divSpace = document.createElement("div");
@@ -320,15 +382,22 @@ function initialize_jQuery_black_bar(){
 				//Changes Glyphicon for the mobile-slide-toggle & animates and additional
 				//margin-spacing for devices under 768px in width 
 				black_bar_jQuery('#ucfhb-mobile-toggle').click(function() {
-					//black_bar_jQuery(this).toggleClass('fa-arrow-circle-down').toggleClass('fa-arrow-circle-up');
-					black_bar_jQuery(this).find('span').toggleClass('fa-arrow-circle-down').toggleClass('fa-arrow-circle-up');
+					//black_bar_jQuery(this).find('span').toggleClass('fa-search-minus').toggleClass('fa-search');
 					if(divSpace.style.marginTop == '50px'){black_bar_jQuery(divSpace).animate({marginTop: '100px'});}
 					else black_bar_jQuery(divSpace).animate({marginTop: '50px'});
 				});
 
 				black_bar_jQuery(window).resize(function() {
-					if(black_bar_jQuery(window).width() > 767){black_bar_jQuery(divSpace).animate({marginTop: '50px'});}
+					if(black_bar_jQuery(window).width() > 767)
+						black_bar_jQuery(divSpace).css({marginTop: '50px'});
 				});
+					//Attempt to Fix issues with iPhone 6
+					//width = 375; length = 627;
+				if (black_bar_jQuery(window).width() == 375){
+					console.log("iPhone 6 Window");
+					black_bar_jQuery("#ucfhb-mobile-toggle").css({paddingRight:'2px', paddingLeft: '6px'});
+					black_bar_jQuery("#ucfhb-signon-logo2").css({paddingLeft:'0px', paddingTop: '2px'});
+				}
 			D()
 			})
 		})();
