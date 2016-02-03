@@ -16,8 +16,6 @@ function initialize_jQuery_black_bar(){
 		var m = function (a, b) {
 			for (var c = a.length, d = 0; d < c; d++) - 1 < a[d].className.indexOf("ucfhb-gold") ? a[d].className = "ucfhb-gold " + b : a[d].className = b
 		};	
-		var app_button1 = black_bar_jQuery("#ucfhb-mobile-toggle");
-		var app_button2 = black_bar_jQuery("#ucfhb-signon-logo2");
 		var app_menu = black_bar_jQuery("#Drawer");
 		var imgsrc = black_bar_jQuery("#ucf-research-apps");
 		d = document.getElementById("ucfhb-signon-logo1");
@@ -26,18 +24,13 @@ function initialize_jQuery_black_bar(){
 		if (!app_menu.is(e.target) && !imgsrc.is(e.target) // if the target of the click isn't the container...
 			&& app_menu.has(e.target).length === 0) // ... nor a descendant of the container
 		{
-			//console.log(e.target);
 			black_bar_jQuery("#ucf-research-apps").attr("src", ""+address+"Images/appdrawer.png");
 			document.getElementById("ucf-research-apps").onmouseout = function(){
 				  black_bar_jQuery("#ucf-research-apps").attr("src", ""+address+"Images/appdrawer.png");
 			};
 			black_bar_jQuery(app_button2).css("color", "#FFC904");
-			// app_button2.onmouseout = function(){
-			// 	  black_bar_jQuery(app_button2).css("color", "#FFC904")
-			// };
 
 			m(shiftLeftElems, ""), searchField.removeAttribute("tabindex"), searchBtn.removeAttribute("tabindex");
-			//black_bar_jQuery(app_button2).attr("clicked",0);
 		}
 	});
 	var searchResultsTarget = "content";
@@ -310,7 +303,7 @@ function initialize_jQuery_black_bar(){
 									'<img src="//header.research.ucf.edu/Images/ucf_research_logo.png" usemap="#logos">\n' +
 										'<map name="logos"><area shape="rect" coords="0,0,321,27" href="http://www.ucf.edu/" title="UCF Main Site" alt="UCF Main Site">\n' +
 										'<area shape="rect" coords="0,0,407,27" href="http://www.research.ucf.edu/" title="ORC Main Site" alt="ORC Main Site"></map>\n' +
-								'</div>\n' +
+								'</div>\n' + 
 								'</div>\n' +
 						'</div>\n' +
 						'<div id="ucfhb-services" style="z-index:9;">\n' +
@@ -367,7 +360,7 @@ function initialize_jQuery_black_bar(){
 								'<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
 								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" role="search"/>\n'+
 								'<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n'+
-								'<input id="ucfhb-search-submit" class="button-add fa fa-search" style="color:#000;" type="submit" />\n'+
+								'<input id="ucfhb-search-submit" class="button-add fa fa-search" style="color:#000; padding: 0px 6px !important;" type="submit" />\n'+
 							'</form>\n' + 
 							'<span id="ucfhb-search-autocomplete-srhelp" role="status" aria-live="polite"></span>\n<a id="ucfhb-search-minimal" href="#">Search</a>\n</div>\n<ul id="ucfhb-search-autocomplete" tabindex="1" aria-hidden="true" role="listbox" ></ul>\n<a style="display:none;" id="ucfhb-search-autocomplete-close" href="#" alt="Close autocomplete results" title="Close autocomplete results">&times;</a>\n</div>\n</div>\n' +
 					'</div>\n</div>\n' ].join("\n");
@@ -382,7 +375,6 @@ function initialize_jQuery_black_bar(){
 				//Changes Glyphicon for the mobile-slide-toggle & animates and additional
 				//margin-spacing for devices under 768px in width 
 				black_bar_jQuery('#ucfhb-mobile-toggle').click(function() {
-					//black_bar_jQuery(this).find('span').toggleClass('fa-search-minus').toggleClass('fa-search');
 					if(divSpace.style.marginTop == '50px'){black_bar_jQuery(divSpace).animate({marginTop: '100px'});}
 					else black_bar_jQuery(divSpace).animate({marginTop: '50px'});
 				});
@@ -391,12 +383,13 @@ function initialize_jQuery_black_bar(){
 					if(black_bar_jQuery(window).width() > 767)
 						black_bar_jQuery(divSpace).css({marginTop: '50px'});
 				});
-					//Attempt to Fix issues with iPhone 6
-					//width = 375; length = 627;
+					//Attempt to Fix issues with iPhone 6: width = 375; length = 627;
 				if (black_bar_jQuery(window).width() == 375){
-					console.log("iPhone 6 Window");
 					black_bar_jQuery("#ucfhb-mobile-toggle").css({paddingRight:'2px', paddingLeft: '6px'});
 					black_bar_jQuery("#ucfhb-signon-logo2").css({paddingLeft:'0px', paddingTop: '2px'});
+
+
+					
 				}
 			D()
 			})
