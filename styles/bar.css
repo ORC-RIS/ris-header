@@ -337,12 +337,12 @@ input.button-add {
 	font-size: 0;
 }
 #ucfhb-search-field { 
-	width: 160px; 
+	width: 160px !important; 
 	height: 25px !important; 
-	border-radius: 30px; 
-	border: 0;
+	border-radius: 30px !important; 
+	border: 0 !important;
 	margin: 0;
-	padding: 2px 45px 2px 15px;
+	padding: 2px 45px 2px 15px !important;
 	position: absolute;
 	top: 2px;
 	left: 0;
