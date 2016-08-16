@@ -172,7 +172,6 @@ function initialize_jQuery_black_bar(){
 						black_bar_jQuery(d2).attr("clicked", 0);
 		
 						d.onclick = function() {
-								console.log("d clicked.")
 								document.getElementById("Drawer").style.marginTop = "-45px";
 							  if(document.getElementById("ucf-research-apps").getAttribute("mouseoutflag") == "1"){
 								  black_bar_jQuery("#ucf-research-apps").attr("src", ""+address+"Images/appdrawer_hover.png");
