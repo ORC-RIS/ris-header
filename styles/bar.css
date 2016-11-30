@@ -465,7 +465,7 @@ input.button-add {
 	border: 1px solid #ddd;
 	padding: 0;
 	min-height: 30px;
-	background: #fff url('../img/ajax-loader.gif') center center no-repeat;
+/* 	background: #fff url('../img/ajax-loader.gif') center center no-repeat;*/
 }
 #ucfhb-search-autocomplete:before { /* Up Carat */
 	position: relative;
