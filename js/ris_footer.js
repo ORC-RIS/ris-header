@@ -1,7 +1,7 @@
 // merge css files in the future (?)
-var styles_link = "https://header.dev.research.ucf.edu/styles/footer.css";
-var styles_link_mobile = "https://header.dev.research.ucf.edu/styles/footer_mobile.css";
-var images_source_dev = "https://header.dev.research.ucf.edu/images/";
+var styles_link = "https://header.research.ucf.edu/styles/footer.css";
+var styles_link_mobile = "https://header.research.ucf.edu/styles/footer_mobile.css";
+var images_source_dev = "https://header.research.ucf.edu/images/";
 var images_source_prod = "https://header.research.ucf.edu/images/";
 
 function loadFooter() {
