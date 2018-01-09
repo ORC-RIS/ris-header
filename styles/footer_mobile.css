@@ -1,0 +1,77 @@
+.pda-footer-main {
+    background-color: #000;
+    color: #fff !important;
+    text-align: center;
+    height: 200px;    
+    box-sizing: border-box !important;
+    line-height: 1.1 !important;
+}
+
+.pda-footer-serif {
+	color: #ffc904 !important;
+	font-family: "Bitter", serif !important;
+	font-size: 14px !important;
+	font-weight: lighter !important;
+}
+
+.pda-footer-sans-serif {
+	font-family: "Montserrat", sans-serif !important;
+	font-weight: 500 !important;
+	font-size: 12px !important;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	color: #ffc904 !important;
+	line-height: 20px !important;
+	text-align: center !important;
+}
+
+.pda-footer-sans-serif h5 {
+	line-height: inherit !important;
+}
+
+.pda-footer-contact {
+	box-sizing: border-box !important;
+	font-size: 12px !important;
+	list-style-type: none !important;
+	line-height: 20px !important;
+}
+
+.pda-footer-icons {
+	box-sizing: border-box !important;
+	vertical-align: middle !important;
+	font-size: 12px !important;
+	font-family: "Merriweather", serif !important;
+	line-height: 20px !important;
+}
+
+.pda-footer-icons img {
+	vertical-align: middle !important;
+}
+
+.sectionwrapper {
+    max-width: 960px !important;
+    margin: 0 auto !important;
+}
+
+a#ucf-white{
+	color: #fff !important;
+}
+
+a {
+	text-decoration: none !important; 
+}
+a#ucf-white:hover {
+	text-decoration: underline !important; 
+}
+
+ul#no-bullets {
+	line-height: normal;
+	list-style-type: none !important;
+	margin-top: 0px !important;
+	margin-bottom: 10px !important;
+	padding-left: 0px !important;
+}
+
+.ribbon {
+	padding-top: 0em !important;
+}
