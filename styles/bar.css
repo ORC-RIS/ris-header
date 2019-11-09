@@ -25,7 +25,7 @@ button:focus{outline:0;}
 #Drawer{ background-color:#fbfbfb;top: 50px !important; ;/*transition: height .5s;*/ z-index:1000; }
 #list{margin-left: auto;margin-right: auto;padding:10px;background-color:#fff; border-radius:0px 0px 5px 5px;border-bottom:1px solid #ccc;border-right:1px solid #ccc;border-left:1px solid #ccc;width:99%;z-index:1000; }
 #list ul{ list-style-type:none; padding: 0px;margin-left:0em !important;margin:0em !important;}
-#list ul li { display: table-cell;padding:5px; border:1px solid #fff; border-right1:1px solid #ddd;border-bottom1:1px solid #ddd}
+#list ul li { display: table-cell;padding:10px 5px 0px 10px; border:1px solid white; /*border-right:1px solid #ddd;border-bottom:1px solid #ddd */}
 .removeSidebar1{border-right:1px solid #eee !important}
 .removeBottombar1{border-bottom:1px solid #eee !important}
 #list ul li:hover{background-color:#fff;border:1px solid #eee; }

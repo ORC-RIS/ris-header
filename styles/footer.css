@@ -28,6 +28,7 @@
 	color: #ffc904 !important;
 	line-height: 20px !important;
 	text-align: center !important;
+	text-transform: capitalize;
 }
 
 .ucf-orc-footer-sans-serif h5 {

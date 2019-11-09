@@ -36,10 +36,15 @@ function initialize_jQuery_black_bar(){
 	var searchResultsTarget = "content";
 	var searchInputId = "ucfhb-search-field"; 
 	var searchForm	= "ucfhb-search-form";
-	var address = "//header.research.ucf.edu/";
 	var risappsaddress = "http://apps.research.ucf.edu/";
-	var addressWO = "//header.research.ucf.edu/";
 	var searchControl;
+
+	if (window.location.href.indexOf("dev") > -1) {
+		var address = "//header.dev.research.ucf.edu/";
+	} else {
+		var address = "//header.research.ucf.edu/";
+	}
+  
 
 	ExecuteWebSiteSearchQuery = function(){
 		document.getElementById('ucfhb-search-form').submit();
@@ -117,7 +122,7 @@ function initialize_jQuery_black_bar(){
 				}
 			}
 			var l = "search",
-				u = window.location.protocol + addressWO+"styles/bar.css",
+				u = window.location.protocol + address+"styles/bar.css",
 				A = window.location.protocol + "//universityheader.ucf.edu/bar/css/bar-bootstrap.css",
 				v = window.location.protocol + "//universityheader.ucf.edu/bar/data/?search=",
 				y = !1,
@@ -313,42 +318,52 @@ function initialize_jQuery_black_bar(){
 							'</center>\n\n' +
 							'<div id="list">\n' +
 								'<ul>\n' +
-									'<li >\n<a href="https://argis.research.ucf.edu/index.cfm?fuseaction=home.main&Content=home.adminlogin" target="_blank"><img src="'+address+'images/ldg_argis.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li class="removeSidebar"><a href="https://tera.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_tera.png" width="90" height="45"/></a>\n</li>\n' +
+									'<li >\n<a href="https://ucf4.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_grants.png" width="135" height="60"/></a>\n</li>\n' +
+									'<li >\n<a href="https://ucf2.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_agreements.png" width="135" height="60"/></a>\n</li>\n' +
+									// '<li >\n<a href="https://argis.research.ucf.edu/index.cfm?fuseaction=home.main&Content=home.adminlogin" target="_blank"><img src="'+address+'images/ldg_argis.png" width="90" height="45"/></a>\n</li>\n' +
+									// '<li class="removeSidebar"><a href="https://tera.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_tera.png" width="90" height="45"/></a>\n</li>\n' +
 								'</ul>\n' +
 								'<ul>\n' +
-									'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li class="">\n<a href="https://ecrt4.research.ucf.edu/ecrt/" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="90" height="45"/></a>\n</li>\n' +
+									'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" width="135" height="60"/></a>\n</li>\n' +
+									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="135" height="60"/></a>\n</li>\n' +
+								'</ul>\n' + 
+								'<ul>\n' +
+									// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
+									'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
+									'<li class="">\n<a href="https://ecrt4.research.ucf.edu/ecrt/" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
 								'</ul>\n'+
 								'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div></div></div>\n' +
 							//Start Right Aligned Content (Apps & SearchBar)
 							//RIS App Drawer
-						'<div id="ucfhb-right" >\n' +
-							'<div><div id="ucfhb-signon">\n' +
-							'<a id="ucfhb-signon-logo1" href="#" style="min-height:50px;">' +
-								'<span id="hover-area-for-menu" >' +
-								'<img id="ucf-research-apps" src="'+address+'Images/appdrawer.png" onmouseover="appdrawermover()" onmouseout="appdrawermout()" mouseoutflag="1"/>' +
-							'</span>\n\n</a>\n' +
-							'<div id="ucfhb-services" style="z-index:9;">\n' +
-							'<div id="Drawer" style="margin-top:-45px;">' +
-							'<center>' +
-							'<div class="arrow-up">' +
-							'</div>' +
-							'</center>\n\n' +
-							'<div id="list">\n' +
-								'<ul>\n' +
-									'<li >\n<a href="https://argis.research.ucf.edu/index.cfm?fuseaction=home.main&Content=home.adminlogin" target="_blank"><img src="'+address+'images/ldg_argis.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li class="removeSidebar"><a href="https://tera.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_tera.png" width="90" height="45"/></a>\n</li>\n' +
-								'</ul>\n' +
-								'<ul>\n' +
-									'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
-									'<li class="">\n<a href="https://ecrt4.research.ucf.edu/ecrt/" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="90" height="45"/></a>\n</li>\n' +
-								'</ul>\n'+
-								'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
+							'<div id="ucfhb-right" >\n' +
+								'<div><div id="ucfhb-signon">\n' +
+								'<a id="ucfhb-signon-logo1" href="#" style="min-height:50px;">' +
+									'<span id="hover-area-for-menu" >' +
+									'<img id="ucf-research-apps" src="'+address+'Images/appdrawer.png" onmouseover="appdrawermover()" onmouseout="appdrawermout()" mouseoutflag="1"/>' +
+								'</span>\n\n</a>\n' +
+								'<div id="ucfhb-services" style="z-index:9;">\n' +
+								'<div id="Drawer" style="margin-top:-45px;">' +
+								'<center>' +
+								'<div class="arrow-up">' +
+								'</div>' +
+								'</center>\n\n' +
+								'<div id="list">\n' +
+									'<ul>\n' +
+										'<li >\n<a href="https://ucf4.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_grants.png" width="135" height="60"/></a>\n</li>\n' +
+										'<li >\n<a href="https://ucf2.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_agreements.png" width="135" height="60"/></a>\n</li>\n' +
+										// '<li >\n<a href="https://argis.research.ucf.edu/index.cfm?fuseaction=home.main&Content=home.adminlogin" target="_blank"><img src="'+address+'images/ldg_argis.png" width="90" height="45"/></a>\n</li>\n' +
+										// '<li class="removeSidebar"><a href="https://tera.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_tera.png" width="90" height="45"/></a>\n</li>\n' +
+									'</ul>\n' +
+									'<ul>\n' +
+										'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" width="135" height="60"/></a>\n</li>\n' +
+										'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="135" height="60"/></a>\n</li>\n' +
+									'</ul>\n' + 
+									'<ul>\n' +
+										// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
+										'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
+										'<li class="">\n<a href="https://ecrt4.research.ucf.edu/ecrt/" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
+									'</ul>\n'+
+									'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
 							'</div>\n</div>\n</div>\n</div>\n</div>' +
 							//Search Bar
 							'<div id="ucfhb-search">\n' + 
