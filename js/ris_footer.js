@@ -8,13 +8,15 @@ steps for adding this footer to a webapp or website
 
 var head = document.getElementsByTagName("head")[0];
 var font_source = "https://fonts.googleapis.com/css?family=Bitter|Cabin|Montserrat";
-var styles_link = "https://header.dev.research.ucf.edu/styles/footer.css";
-var styles_link_mobile = "https://header.dev.research.ucf.edu/styles/footer_mobile.css";
 
 if (window.location.href.indexOf("dev") > -1) {
 	var images_source = "//header.dev.research.ucf.edu/images/";
+	var styles_link = "https://header.dev.research.ucf.edu/styles/footer.css";
+	var styles_link_mobile = "https://header.dev.research.ucf.edu/styles/footer_mobile.css";
 } else {
 	var images_source = "//header.research.ucf.edu/images/";
+	var styles_link = "https://header.research.ucf.edu/styles/footer.css";
+	var styles_link_mobile = "https://header.research.ucf.edu/styles/footer_mobile.css";
 }
 
 function loadFooter() {

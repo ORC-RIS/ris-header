@@ -299,12 +299,12 @@ function initialize_jQuery_black_bar(){
 							//New App Hover
 							'<div id="ucfhb-logo">' +
 								'<div id="ucfhb-logo-main" style="max-width:100%;height:auto;position:fixed;width:77%;" class="hidden-md hidden-sm hidden-lg">\n' +
-									'<img src="//header.research.ucf.edu/Images/ucf_research_logo.png" usemap="#logos" style="height:auto;">\n' +
+									'<img src="'+address+'/Images/ucf_research_logo.png" usemap="#logos" style="height:auto;">\n' +
 										'<map name="logos"><area shape="rect" coords="0,0,321,27" href="http://www.ucf.edu/" title="UCF Main Site" alt="UCF Main Site">\n' +
 										'<area shape="rect" coords="0,0,407,27" href="http://www.research.ucf.edu/" title="ORC Main Site" alt="ORC Main Site"></map>\n' +
 								'</div>\n' +
 								'<div id="ucfhb-logo-main" style="position: fixed;" class="hidden-xs">\n' +
-									'<img src="//header.research.ucf.edu/Images/ucf_research_logo.png" usemap="#logos">\n' +
+									'<img src="'+address+'/Images/ucf_research_logo.png" usemap="#logos">\n' +
 										'<map name="logos"><area shape="rect" coords="0,0,321,27" href="http://www.ucf.edu/" title="UCF Main Site" alt="UCF Main Site">\n' +
 										'<area shape="rect" coords="0,0,407,27" href="http://www.research.ucf.edu/" title="ORC Main Site" alt="ORC Main Site"></map>\n' +
 								'</div>\n' + 
