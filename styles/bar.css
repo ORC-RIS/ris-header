@@ -45,7 +45,7 @@ button:focus{outline:0;}
 	border-width: 0px 1px 2px 1px; */
 	text-decoration: none !important;}
 .viewMore{padding:10px;	font-size:0.9em;background-color:#eee;text-decoration: none !important;margin-top:10px; text-align: center;}
-.viewMore a{text-decoration: none !important;color: #000  !important;}
+.viewMore a{ padding:10px 100px !important;text-decoration: none !important;color: #000  !important;}
 .viewMore:hover{padding:10px;	font-size:0.9em;font-weight:bold;background-color:#eee;text-decoration: none !important;color: #000  !important; }		
 
 #bottomBar{ background-color:#F5C300; margin: 0px -22px; display:block !important;}

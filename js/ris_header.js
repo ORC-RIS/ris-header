@@ -330,7 +330,7 @@ function initialize_jQuery_black_bar(){
 								'<ul>\n' +
 									// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
 									'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
-									'<li class="">\n<a href="https://ucf.huronecc.com/ecrt/" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
+									'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
 								'</ul>\n'+
 								'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div></div></div>\n' +
 							//Start Right Aligned Content (Apps & SearchBar)
@@ -361,7 +361,7 @@ function initialize_jQuery_black_bar(){
 									'<ul>\n' +
 										// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
 										'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
-										'<li class="">\n<a href="https://ucf.huronecc.com/ecrt/" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
+										'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
 									'</ul>\n'+
 									'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
 							'</div>\n</div>\n</div>\n</div>\n</div>' +
@@ -373,7 +373,7 @@ function initialize_jQuery_black_bar(){
 							//	'<input type="hidden" name="client" value="UCF_Main" />\n'+
 							//	'<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
 								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" role="search"/>\n'+
-								'<input name="sitesearch" value="http://research.ucf.edu" type="hidden">\n'+
+								'<input name="sitesearch" value="https://www.research.ucf.edu" type="hidden">\n'+
 								'<input id="ucfhb-search-submit" class="button-add fa fa-search" style="color:#000; padding: 0px 6px !important;" type="submit" />\n'+
 							'</form>\n' + 
 							'<span id="ucfhb-search-autocomplete-srhelp" role="status" aria-live="polite"></span>\n<a id="ucfhb-search-minimal" href="#">Search</a>\n</div>\n<ul id="ucfhb-search-autocomplete" tabindex="1" aria-hidden="true" role="listbox" ></ul>\n<a style="display:none;" id="ucfhb-search-autocomplete-close" href="#" alt="Close autocomplete results" title="Close autocomplete results">&times;</a>\n</div>\n</div>\n' +
