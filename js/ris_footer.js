@@ -30,7 +30,7 @@ function loadFooter() {
 		'<div class="ucf-orc-footer-main">' +
 			'<div class="ucf-orc-footer-sectionwrapper centered">' +
 				'<ul id="no-bullets">' +
-					'<li class="ucf-orc-footer-serif"><span style="color: white">&copy;</span> <a class="ucf-white white-underline" style="color: white;" href="http://www.research.ucf.edu" target="_blank">UCF Office of Research & Commercialization</a></li>' +
+					'<li class="ucf-orc-footer-serif"><span style="color: white">&copy;</span> <a class="ucf-white white-underline" style="color: white;" href="http://www.research.ucf.edu" target="_blank">UCF Office of Research</a></li>' +
 					'<li class="ucf-orc-footer-ribbon"><a class="ucf-white gold-underline" href="http://it.research.ucf.edu" target="_blank"><h5 class="ucf-orc-footer-sans-serif">Developed by Graduate and Research Information Technology</h5></a></li>' +
 					'<li class="ucf-orc-footer-ribbon ucf-orc-footer-icons">' +
 						'<img src="'+ images_source + 'ldg_mail.png" width="20" height="12"/>&nbsp;<a id="ucf-white" href="mailto:GRITservicedesk@ucf.edu">GRITservicedesk@ucf.edu</a>&nbsp; ' +
