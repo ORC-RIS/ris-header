@@ -369,10 +369,10 @@ function initialize_jQuery_black_bar(){
 							'<div id="ucfhb-search">\n' + 
 								'<form id="ucfhb-search-form" target="_blank" formtarget="_blank" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off" '+ 
 								  'action="https://search.ucf.edu/#" data-action-url="https://search.ucf.edu/%23?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q=" method="get" >\n' +
-								'<label for="ucfhb-search-field">Search ORC</label>\n'+
+								'<label for="ucfhb-search-field">Search OR</label>\n'+
 							//	'<input type="hidden" name="client" value="UCF_Main" />\n'+
 							//	'<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
-								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" role="search"/>\n'+
+								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search OR" role="search"/>\n'+
 								'<input name="sitesearch" value="https://www.research.ucf.edu" type="hidden">\n'+
 								'<input id="ucfhb-search-submit" class="button-add fa fa-search" style="color:#000; padding: 0px 6px !important;" type="submit" />\n'+
 							'</form>\n' + 
