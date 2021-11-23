@@ -356,12 +356,16 @@ function initialize_jQuery_black_bar(){
 									'</ul>\n' +
 									'<ul>\n' +
 										'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" width="135" height="60"/></a>\n</li>\n' +
-										'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="135" height="60"/></a>\n</li>\n' +
+										'<li >\n<a href="https://ucf3.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_iacuc.png" width="135" height="60"/></a>\n</li>\n' +
+									'</ul>\n' + 
+									'<ul>\n' +
+										'<li >\n<a target="_blank"><img src="'+address+'images/huron_safety.png" width="135" height="60"/></a>\n</li>\n' +
+										'<li >\n<a target="_blank"><img src="'+address+'images/huron_coi.png" width="135" height="60"/></a>\n</li>\n' +
 									'</ul>\n' + 
 									'<ul>\n' +
 										// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
+										'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="135" height="60"/></a>\n</li>\n' +
 										'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
-										'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
 									'</ul>\n'+
 									'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
 							'</div>\n</div>\n</div>\n</div>\n</div>' +
