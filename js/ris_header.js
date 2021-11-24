@@ -324,8 +324,8 @@ function initialize_jQuery_black_bar(){
 									// '<li class="removeSidebar"><a href="https://tera.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_tera.png" width="90" height="45"/></a>\n</li>\n' +
 								'</ul>\n' +
 								'<ul>\n' +
-									'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" width="135" height="60"/></a>\n</li>\n' +
-									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="135" height="60"/></a>\n</li>\n' +
+									'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" alt="" width="135" height="60"/></a>\n</li>\n' +
+									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" alt="" width="135" height="60"/></a>\n</li>\n' +
 								'</ul>\n' + 
 								'<ul>\n' +
 									// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
