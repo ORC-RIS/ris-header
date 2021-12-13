@@ -324,8 +324,8 @@ function initialize_jQuery_black_bar(){
 									// '<li class="removeSidebar"><a href="https://tera.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_tera.png" width="90" height="45"/></a>\n</li>\n' +
 								'</ul>\n' +
 								'<ul>\n' +
-									'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" width="135" height="60"/></a>\n</li>\n' +
-									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="135" height="60"/></a>\n</li>\n' +
+									'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" alt="" width="135" height="60"/></a>\n</li>\n' +
+									'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" alt="" width="135" height="60"/></a>\n</li>\n' +
 								'</ul>\n' + 
 								'<ul>\n' +
 									// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
@@ -357,11 +357,16 @@ function initialize_jQuery_black_bar(){
 									'<ul>\n' +
 										'<li >\n<a href="https://ucf1.huronresearchsuite.com/IRB" target="_blank"><img src="'+address+'images/huron_irb.png" width="135" height="60"/></a>\n</li>\n' +
 										'<li><a href="https://paris.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_paris.png" width="135" height="60"/></a>\n</li>\n' +
+										// '<li >\n<a href="https://ucf3.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_iacuc.png" width="135" height="60"/></a>\n</li>\n' +
 									'</ul>\n' + 
+									// '<ul>\n' +
+									// 	'<li >\n<a target="_blank"><img src="'+address+'images/huron_safety.png" width="135" height="60"/></a>\n</li>\n' +
+									// 	'<li >\n<a target="_blank"><img src="'+address+'images/huron_coi.png" width="135" height="60"/></a>\n</li>\n' +
+									// '</ul>\n' + 
 									'<ul>\n' +
 										// '<li class="">\n<a href="https://iris.research.ucf.edu/" target="_blank"><img src="'+address+'images/ldg_iris.png" width="90" height="45"/></a>\n</li>\n' +
 										'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
-										'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
+										'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ECC.png" width="135" height="60"/></a>\n</li>\n' +
 									'</ul>\n'+
 									'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
 							'</div>\n</div>\n</div>\n</div>\n</div>' +
@@ -369,10 +374,10 @@ function initialize_jQuery_black_bar(){
 							'<div id="ucfhb-search">\n' + 
 								'<form id="ucfhb-search-form" target="_blank" formtarget="_blank" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off" '+ 
 								  'action="https://search.ucf.edu/#" data-action-url="https://search.ucf.edu/%23?client=UCF_Main&amp;proxystylesheet=UCF_Main&amp;sitesearch=http%3A%2F%2Fresearch.ucf.edu&amp;q=" method="get" >\n' +
-								'<label for="ucfhb-search-field">Search ORC</label>\n'+
+								'<label for="ucfhb-search-field">Search OR</label>\n'+
 							//	'<input type="hidden" name="client" value="UCF_Main" />\n'+
 							//	'<input type="hidden" name="proxystylesheet" value="UCF_Main" />\n'+
-								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search ORC" role="search"/>\n'+
+								'<input type="text" name="q" id="ucfhb-search-field" placeholder="Search OR" role="search"/>\n'+
 								'<input name="sitesearch" value="https://www.research.ucf.edu" type="hidden">\n'+
 								'<input id="ucfhb-search-submit" class="button-add fa fa-search" style="color:#000; padding: 0px 6px !important;" type="submit" />\n'+
 							'</form>\n' + 
