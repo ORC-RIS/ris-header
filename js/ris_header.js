@@ -332,7 +332,7 @@ function initialize_jQuery_black_bar(){
 									'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
 									'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/></a>\n</li>\n' +
 								'</ul>\n'+
-								'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div></div></div>\n' +
+								'<center><a href="'+risappsaddress+'"><span style="display:block" class="viewMore">View more...</span></a></center></div></div></div>\n' +
 							//Start Right Aligned Content (Apps & SearchBar)
 							//RIS App Drawer
 							'<div id="ucfhb-right" >\n' +
@@ -368,8 +368,8 @@ function initialize_jQuery_black_bar(){
 										'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60"/></a>\n</li>\n' +
 										'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ECC.png" width="135" height="60"/></a>\n</li>\n' +
 									'</ul>\n'+
-									'<center><div class="viewMore"><a href="'+risappsaddress+'">View more...</a></div></center></div>\n' +
-							'</div>\n</div>\n</div>\n</div>\n</div>' +
+									'<center><a href="'+risappsaddress+'"><span style="display:block" class="viewMore">View more...</span></a></center></div>\n' +
+									'</div>\n</div>\n</div>\n</div>\n</div>' +
 							//Search Bar
 							'<div id="ucfhb-search">\n' + 
 								'<form id="ucfhb-search-form" target="_blank" formtarget="_blank" name="ucfhb-search-form" id="ucfhb-search-form" autocomplete="off" '+ 
