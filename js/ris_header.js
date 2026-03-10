@@ -312,10 +312,10 @@ function initialize_jQuery_black_bar(){
 						'</div>\n' +
 						'<div id="ucfhb-services" style="z-index:9;">\n' +
 							'<div id="Drawer" style="margin-top:-45px;">' +
-							'<center>' +
-							'<div class="arrow-up">' +
+							'<div class="d-block w-100">' +
+							'<div class="arrow-up center-block">' +
 							'</div>' +
-							'</center>\n\n' +
+							'</div>\n\n' +
 							'<div id="list">\n' +
 								'<ul>\n' +
 									'<li >\n<a href="https://ucf4.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_grants.png" width="135" height="60" alt="Huron Grants button image"/></a>\n</li>\n' +
@@ -332,7 +332,7 @@ function initialize_jQuery_black_bar(){
 									'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60" alt="AURORA button image"/></a>\n</li>\n' +
 									'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ldg_ecrt.png" width="135" height="60"/ alt="Huron ECC button image"></a>\n</li>\n' +
 								'</ul>\n'+
-								'<center><a href="'+risappsaddress+'"><span style="color: black; display:block" class="viewMore">View more...</span></a></center></div></div></div>\n' +
+								'<div class="center-block"><a href="'+risappsaddress+'"><span style="color: black; display:block" class="viewMore">View more...</span></a></div></div></div></div>\n' +
 							//Start Right Aligned Content (Apps & SearchBar)
 							//RIS App Drawer
 							'<div id="ucfhb-right" >\n' +
@@ -344,10 +344,10 @@ function initialize_jQuery_black_bar(){
 								'</span>\n\n</a>\n' +
 								'<div id="ucfhb-services" style="z-index:9;">\n' +
 								'<div id="Drawer" style="margin-top:-45px;">' +
-								'<center>' +
-								'<div class="arrow-up">' +
+								'<div class="">' +
+								'<div class="arrow-up center-block">' +
 								'</div>' +
-								'</center>\n\n' +
+								'</div>\n\n' +
 								'<div id="list">\n' +
 									'<ul>\n' +
 										'<li >\n<a href="https://ucf4.huronresearchsuite.com/" target="_blank"><img src="'+address+'images/huron_grants.png" width="135" height="60" alt="Huron Grants button image"/></a>\n</li>\n' +
@@ -369,7 +369,7 @@ function initialize_jQuery_black_bar(){
 										'<li class="">\n<a href="https://reports.research.ucf.edu/mainmenu.cfm" target="_blank"><img src="'+address+'images/ldg_aurora.png" width="135" height="60" alt="AURORA button image"/></a>\n</li>\n' +
 										'<li class="">\n<a href="https://ucf.huronecc.com/ecc/RedirectHome.do" target="_blank"><img src="'+address+'images/ECC.png" width="135" height="60" alt="Huron ECC button image"/></a>\n</li>\n' +
 									'</ul>\n'+
-									'<center><a href="'+risappsaddress+'"><span style="color: black; display:block" class="viewMore">View more...</span></a></center></div>\n' +
+									'<div class="center-block"><a href="'+risappsaddress+'"><span style="color: black; display:block" class="viewMore">View more...</span></a></div></div>\n' +
 									'</div>\n</div>\n</div>\n</div>\n</div>' +
 							//Search Bar
 							'<div id="ucfhb-search">\n' + 
