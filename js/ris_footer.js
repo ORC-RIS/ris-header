@@ -31,7 +31,7 @@ function loadFooter() {
 			'<div class="ucf-orc-footer-sectionwrapper centered">' +
 				'<ul id="no-bullets">' +
 					'<li class="ucf-orc-footer-serif"><span style="color: white">&copy;</span> <a class="ucf-white white-underline" style="color: white;" href="http://www.research.ucf.edu" target="_blank">UCF Office of Research</a></li>' +
-					'<li class="ucf-orc-footer-ribbon"><a style="display: inline-block; height: 44px" class="ucf-white gold-underline" href="http://it.research.ucf.edu" target="_blank"><h5 class="ucf-orc-footer-sans-serif">Developed by Graduate and Research Information Technology</h5></a></li>' +
+					'<li class="ucf-orc-footer-ribbon"><a style="display: inline-block; height: 44px" class="ucf-white gold-underline" href="http://it.research.ucf.edu" target="_blank"><span class="ucf-orc-footer-sans-serif">Developed by Graduate and Research Information Technology</span></a></li>' +
 					'<li class="ucf-orc-footer-ribbon ucf-orc-footer-icons">' +
 						'<img src="'+ images_source + 'ldg_mail.png" width="20" height="12" alt="Email icon"/>&nbsp;<a id="ucf-white" href="mailto:GRITservicedesk@ucf.edu">GRITservicedesk@ucf.edu</a>&nbsp; ' +
 						'<span style="margin-top:5px;"><img src="'+ images_source + 'ldg_phone.png" width="16" height="25" alt="Phone icon"/>&nbsp;407.823.5500</span>' +
