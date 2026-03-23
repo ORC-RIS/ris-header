@@ -28,8 +28,8 @@ function loadFooter() {
 	$(document).ready(function() {
 		$('#ucf-orc-footer').html(
 		'<div class="ucf-orc-footer-main">' +
-			'<div class="ucf-orc-footer-sectionwrapper centered">' +
-				'<ul role="navigation" id="no-bullets">' +
+			'<div class="ucf-orc-footer-sectionwrapper centered" role="navigation">' +
+				'<ul id="no-bullets">' +
 					'<li class="ucf-orc-footer-serif"><span style="color: white">&copy;</span> <a class="ucf-white white-underline" style="color: white;" href="http://www.research.ucf.edu" target="_blank">UCF Office of Research</a></li>' +
 					'<li class="ucf-orc-footer-ribbon"><a style="display: inline-block; padding: 1.25rem 0rem" class="ucf-white gold-underline" href="http://it.research.ucf.edu" target="_blank"><span class="ucf-orc-footer-sans-serif">Developed by Graduate and Research Information Technology</span></a></li>' +
 					'<li class="ucf-orc-footer-ribbon ucf-orc-footer-icons">' +
